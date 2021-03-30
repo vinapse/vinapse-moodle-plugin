@@ -17,15 +17,15 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     ltisource_daddyvideo
+ * @package     mod_daddyvideo
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'ltisource_daddyvideo';
+$plugin->component = 'mod_daddyvideo';
 $plugin->release = '0.1.0';
-$plugin->version = 2021032900;
-$plugin->requires = 2020061500;
+$plugin->version = 2021033000;
+$plugin->requires = 2020110900;
 $plugin->maturity = MATURITY_ALPHA;

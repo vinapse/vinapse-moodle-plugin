@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     ltisource_daddyvideo
+ * @package     mod_daddyvideo
  * @category    string
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

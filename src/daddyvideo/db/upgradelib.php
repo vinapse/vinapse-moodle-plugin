@@ -17,7 +17,7 @@
 /**
  * Plugin upgrade helper functions are defined here.
  *
- * @package     ltisource_daddyvideo
+ * @package     mod_daddyvideo
  * @category    upgrade
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Helper function used by the upgrade.php file.
  */
-function ltisource_daddyvideo_helper_function() {
+function mod_daddyvideo_helper_function() {
     global $DB;
 
     // Please note: you can only use raw low level database access here.

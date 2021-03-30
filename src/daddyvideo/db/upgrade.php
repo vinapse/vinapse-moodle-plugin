@@ -17,7 +17,7 @@
 /**
  * Plugin upgrade steps are defined here.
  *
- * @package     ltisource_daddyvideo
+ * @package     mod_daddyvideo
  * @category    upgrade
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,12 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__.'/upgradelib.php');
 
 /**
- * Execute ltisource_daddyvideo upgrade from the given old version.
+ * Execute mod_daddyvideo upgrade from the given old version.
  *
  * @param int $oldversion
  * @return bool
  */
-function xmldb_ltisource_daddyvideo_upgrade($oldversion) {
+function xmldb_daddyvideo_upgrade($oldversion) {
     global $DB;
 
     $dbman = $DB->get_manager();
