@@ -68,8 +68,10 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
 
         // Adding the rest of mod_daddyvideo settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        $mform->addElement('static', 'label1', 'daddyvideosettings', get_string('daddyvideosettings', 'mod_daddyvideo'));
-        $mform->addElement('header', 'daddyvideofieldset', get_string('daddyvideofieldset', 'mod_daddyvideo'));
+        //$mform->addElement('static', 'label1', 'daddyvideosettings', get_string('daddyvideosettings', 'mod_daddyvideo'));
+        //$mform->addElement('header', 'daddyvideofieldset', get_string('daddyvideofieldset', 'mod_daddyvideo'));
+        // Adding the Uuid remote reference.
+        $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
 
         // Add standard elements.
         $this->standard_coursemodule_elements();
