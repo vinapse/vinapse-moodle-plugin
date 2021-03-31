@@ -38,10 +38,18 @@ function xmldb_daddyvideo_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // For further information please read {@link https://docs.moodle.org/dev/Upgrade_API}.
-    //
-    // You will also have to create the db/install.xml file by using the XMLDB Editor.
-    // Documentation for the XMLDB Editor can be found at {@link https://docs.moodle.org/dev/XMLDB_editor}.
+    // Reference to the Uuid of the lecture on the provider DADdy
+    if ($oldversion < 2021033100) {
+
+        $table = new xmldb_table('daddyvideo');
+        $field = new xmldb_field('remoteuuid', XMLDB_TYPE_CHAR, '36', null, null, null, null);
+
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        upgrade_mod_savepoint(true, 2021033100, 'daddyvideo');
+    }
 
     return true;
 }
