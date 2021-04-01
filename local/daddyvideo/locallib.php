@@ -6,11 +6,13 @@ global $CFG; // should be defined in config.php
 
 require_once($CFG->dirroot.'/mod/lti/locallib.php');
 
-function local_daddy_request_lti_launch() {
+function local_daddy_request_lti_launch($uuid) {
 
     $endpoint = "http://127.0.0.1:8080/view";
 
-    $requestparams = array();
+    $requestparams = array(
+        'custom_resource_id' => uuid
+    );
 
     $lti = new stdClass();
     $lti->resourcekey = "key";
