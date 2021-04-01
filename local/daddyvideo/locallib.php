@@ -1,8 +1,6 @@
 <?php
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
 
 global $CFG; // should be defined in config.php
 
@@ -18,7 +16,7 @@ function local_daddy_request_lti_launch() {
     $lti->resourcekey = "key";
     $lti->password = "secret";
 
-    $debug = true;
+    $debug = false;
 
     /**
      * Signs the petition to launch the external tool using OAuth
