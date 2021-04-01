@@ -29,3 +29,6 @@ $plugin->release = '0.1.0';
 $plugin->version = 2021033100;
 $plugin->requires = 2020110900;
 $plugin->maturity = MATURITY_ALPHA;
+$plugin->dependencies = array(
+    'local_daddyvideo' => 2021033100
+);

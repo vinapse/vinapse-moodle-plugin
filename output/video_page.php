@@ -8,11 +8,11 @@ use templatable;
 use stdClass;
 
 class video_page implements renderable, templatable {
-    /** @var string $sometext Some text to show how to pass data to a template. */
+    /** @var string $uuid Remote Uuid to pass to the iFrame. */
     var $sometext = null;
 
-    public function __construct($sometext) {
-        $this->sometext = $sometext;
+    public function __construct($uuid) {
+        $this->uuid = $uuid;
     }
 
     /**
@@ -22,7 +22,7 @@ class video_page implements renderable, templatable {
      */
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();
-        $data->sometext = $this->sometext;
+        $data->uuid = $this->uuid;
         return $data;
     }
 }
