@@ -8,13 +8,13 @@ require_once($CFG->dirroot.'/mod/lti/locallib.php');
 
 function local_daddy_request_lti_launch() {
 
-    $endpoint = "http://127.0.0.1:8080/edit";
+    $endpoint = "http://127.0.0.1:8080/view";
 
     $requestparams = array();
 
     $lti = new stdClass();
     $lti->resourcekey = "key";
-    $lti->password = "secret";
+    $lti->password = "SECRET";
 
     $debug = false;
 
