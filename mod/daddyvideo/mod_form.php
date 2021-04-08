@@ -39,6 +39,23 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
      * Defines forms elements
      */
     public function definition() {
+
+        $EDITFRAME = '<div id="fitem_id_editframe" class="form-group row  fitem   ">
+            <div class="col-md-3 col-form-label d-flex pb-0 pr-md-0">
+                
+                        <label class="d-inline word-break " for="id_editframe">
+                            Video file
+                        </label>
+                
+                <div class="ml-1 ml-md-auto d-flex align-items-center align-self-start">
+                    
+                </div>
+            </div>
+            <div class="col-md-9 form-inline align-items-start felement" data-fieldtype="text" id="yui_3_17_2_1_1617346993839_780">
+                    <iframe src="http://127.0.0.1/mod/daddyvideo/lti_launch.php" title="" style="width: 100%; height: 300px"></iframe>
+            </div>
+        </div>';
+
         global $CFG;
 
         $mform = $this->_form;
@@ -70,8 +87,12 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
         //$mform->addElement('static', 'label1', 'daddyvideosettings', get_string('daddyvideosettings', 'mod_daddyvideo'));
         //$mform->addElement('header', 'daddyvideofieldset', get_string('daddyvideofieldset', 'mod_daddyvideo'));
+
         // Adding the Uuid remote reference.
         $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+
+        // Edit iFrame
+        $mform->addElement('html', $EDITFRAME);
 
         // Add standard elements.
         $this->standard_coursemodule_elements();

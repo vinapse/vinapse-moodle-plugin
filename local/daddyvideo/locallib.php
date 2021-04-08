@@ -8,8 +8,11 @@ require_once($CFG->dirroot.'/mod/lti/locallib.php');
 
 function local_daddy_request_lti_launch($uuid) {
 
-    $endpoint = "http://127.0.0.1:8080/view";
-
+    if ($uuid===NULL) {
+        $endpoint = "https://127.0.0.1:8443/edit";
+    } else {
+        $endpoint = "https://127.0.0.1:8443/view";
+    }
     $requestparams = array(
         'custom_resource_id' => $uuid
     );

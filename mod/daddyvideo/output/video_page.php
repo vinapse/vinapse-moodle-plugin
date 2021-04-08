@@ -8,8 +8,6 @@ use templatable;
 use stdClass;
 
 class video_page implements renderable, templatable {
-    /** @var string $uuid Remote Uuid to pass to the iFrame. */
-    var $sometext = null;
 
     public function __construct($uuid) {
         $this->uuid = $uuid;
