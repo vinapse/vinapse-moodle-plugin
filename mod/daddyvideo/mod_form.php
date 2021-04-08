@@ -51,6 +51,20 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
                     
                 </div>
             </div>
+            <script>
+            if (window.addEventListener) {
+                window.addEventListener("message", onMessage, false);        
+            }  else if (window.attachEvent) {
+                window.attachEvent("onmessage", onMessage, false);
+            }
+
+            function onMessage(event) {
+                // TODO: check event.origin
+                var data = event.data;
+                document.getElementById("id_remoteuuid").value = data.uuid;
+            }
+
+            </script>
             <div class="col-md-9 form-inline align-items-start felement" data-fieldtype="text" id="yui_3_17_2_1_1617346993839_780">
                     <iframe src="http://127.0.0.1/mod/daddyvideo/lti_launch.php" title="" style="width: 100%; height: 300px"></iframe>
             </div>
