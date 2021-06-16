@@ -6,20 +6,23 @@ global $CFG; // should be defined in config.php
 
 require_once($CFG->dirroot.'/mod/lti/locallib.php');
 
-function local_daddy_request_lti_launch($uuid) {
+function local_daddy_request_lti_launch($uuid, $department, $year) {
 
     if ($uuid===NULL) {
-        $endpoint = "https://127.0.0.1:8443/edit";
+        $endpoint = "https://dev-lti.txc2.eu/edit";
     } else {
-        $endpoint = "https://127.0.0.1:8443/view";
+        $endpoint = "https://dev-lti.txc2.eu/view";
     }
     $requestparams = array(
-        'custom_resource_id' => $uuid
+        'resource_id' => $uuid,
+        'department' => $department,
+        'year' => $year,
+
     );
 
     $lti = new stdClass();
-    $lti->resourcekey = "key";
-    $lti->password = "SECRET";
+    $lti->resourcekey = "unitn";
+    $lti->password = "secret1";
 
     $debug = false;
 

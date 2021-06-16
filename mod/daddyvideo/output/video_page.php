@@ -21,6 +21,8 @@ class video_page implements renderable, templatable {
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();
         $data->uuid = $this->uuid;
+        $data->department = $this->department;
+        $data->year = $this->year;
         return $data;
     }
 }

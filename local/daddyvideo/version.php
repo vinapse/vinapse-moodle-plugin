@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_daddyvideo';
-$plugin->release = '0.1.0';
-$plugin->version = 2021033100;
-$plugin->requires = 2020110900;
+$plugin->release = '0.2.0';
+$plugin->version = 2021052500;
+$plugin->requires = 2021052500;
 $plugin->maturity = MATURITY_ALPHA;

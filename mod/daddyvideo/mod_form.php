@@ -66,7 +66,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
 
             </script>
             <div class="col-md-9 form-inline align-items-start felement" data-fieldtype="text" id="yui_3_17_2_1_1617346993839_780">
-                    <iframe src="http://127.0.0.1/mod/daddyvideo/lti_launch.php" title="" style="width: 100%; height: 300px"></iframe>
+                    <iframe src="https://dev-lms.txc2.eu/mod/daddyvideo/lti_launch.php" title="" style="width: 100%; height: 300px"></iframe>
             </div>
         </div>';
 
@@ -104,6 +104,12 @@ class mod_daddyvideo_mod_form extends moodleform_mod {
 
         // Adding the Uuid remote reference.
         $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+
+        // Adding the Department remote reference.
+        $mform->addElement('text', 'department', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+
+        // Adding the Year remote reference.
+        $mform->addElement('text', 'year', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '8'));
 
         // Edit iFrame
         $mform->addElement('html', $EDITFRAME);

@@ -51,5 +51,21 @@ function xmldb_daddyvideo_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2021033100, 'daddyvideo');
     }
 
+    // Reference to the department and year on the provider DADdy
+    if ($oldversion < 2021033100) {
+
+        $table = new xmldb_table('daddyvideo');
+        $field = new xmldb_field('department', XMLDB_TYPE_CHAR, '36', null, null, null, null);
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+        $field = new xmldb_field('year', XMLDB_TYPE_CHAR, '8', null, null, null, null);
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        upgrade_mod_savepoint(true, 2021052500, 'daddyvideo');
+    }
+
     return true;
 }
