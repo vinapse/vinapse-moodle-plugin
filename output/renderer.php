@@ -2,7 +2,7 @@
 // Standard GPL and phpdocs
 namespace tool_demo\output;
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
 use plugin_renderer_base;
 
