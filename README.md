@@ -1,44 +1,16 @@
 # DADdy video #
 
-TODO Describe the plugin shortly here.
+## Development setup
 
-TODO Provide more detailed description here.
+```
+cd $MOODLE_PATH/mod
+git clone git@github.com:txc2team/daddy-moodle-plugin.git daddyvideo
+```
 
-## Installing via uploaded ZIP file ##
+Go to Moodle admin to complete the installation.
 
-1. Log in to your Moodle site as an admin and go to _Site administration >
-   Plugins > Install plugins_.
-2. Upload the ZIP file with the plugin code. You should only be prompted to add
-   extra details if your plugin type is not automatically detected.
-3. Check the plugin validation report and finish the installation.
+## Deployment
 
-## Installing manually ##
+Create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`. Then install through the Moodle admin page. 
 
-The plugin can be also installed by putting the contents of this directory to
-
-    {your/moodle/dirroot}/mod/daddyvideo
-
-Afterwards, log in to your Moodle site as an admin and go to _Site administration >
-Notifications_ to complete the installation.
-
-Alternatively, you can run
-
-    $ php admin/cli/upgrade.php
-
-to complete the installation from the command line.
-
-## License ##
-
-2021 TxC2 <info@txc2.eu>
-
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program.  If not, see <https://www.gnu.org/licenses/>.
+TODO: script
