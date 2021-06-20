@@ -33,7 +33,4 @@ if ($hassiteconfig) {
             'Help',
             1)
     );
-
-//    $settings->add(new admin_setting_configtext('mod_lesson/mediawidth', get_string('mediawidth', 'lesson'),
-//        get_string('configmediawidth', 'lesson'), 640, PARAM_INT));
 }

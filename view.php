@@ -65,7 +65,7 @@ $PAGE->set_context($modulecontext);
 
 echo $OUTPUT->header();
 
-$renderable = new \mod_daddyvideo\output\video_page($moduleinstance->remoteuuid);
+$renderable = new \mod_daddyvideo\output\video_page($moduleinstance->remoteuuid, $moduleinstance->year, $moduleinstance->department);
 echo $OUTPUT->render($renderable);
 
 echo $OUTPUT->footer();

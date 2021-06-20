@@ -10,9 +10,13 @@ use stdClass;
 class video_page implements renderable, templatable {
 
     private $uuid;
+    private $department;
+    private $year;
 
-    public function __construct($uuid) {
+    public function __construct($uuid, $year, $department) {
         $this->uuid = $uuid;
+        $this->year = $year;
+        $this->department = $department;
     }
 
     /**

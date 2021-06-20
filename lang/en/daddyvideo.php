@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'DADdy video';
 $string['modulename'] = 'DADdy video';
+$string['modulenameplural'] = 'DADdy video';
 $string['daddyvideoname'] = 'Name';
 $string['pluginadministration'] = 'DADdy video plugin administration';
 
