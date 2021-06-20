@@ -32,3 +32,4 @@ $string['daddyvideoname'] = 'Name';
 $string['pluginadministration'] = 'DADdy video plugin administration';
 
 $string['remoteuuid'] = 'Remote Uuid';
+$string['daddyvideo:addinstance'] = 'Create new video resource';

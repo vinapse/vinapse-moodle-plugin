@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_daddyvideo';
 $plugin->release = '0.2.0';
-$plugin->version = 2021052500;
+$plugin->version = 2021062002;
 $plugin->requires = 2020110900;
 $plugin->maturity = MATURITY_ALPHA;
