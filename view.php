@@ -23,8 +23,8 @@
  */
 
 require(__DIR__.'/../../config.php');
-require_once(__DIR__.'/lib.php');
-require_once(__DIR__.'/output/video_page.php');
+require_once(__DIR__ . '/lib.php');
+require_once(__DIR__ . '/output/video_page.php');
 
 // Course module id.
 $id = optional_param('id', 0, PARAM_INT);

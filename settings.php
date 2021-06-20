@@ -15,17 +15,25 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * Plugin administration pages are defined here.
  *
  * @package     mod_daddyvideo
+ * @category    admin
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_daddyvideo';
-$plugin->release = '0.2.0';
-$plugin->version = 2021052500;
-$plugin->requires = 2021052500;
-$plugin->maturity = MATURITY_ALPHA;
+if ($hassiteconfig) {
+    $settings->add(
+        new admin_setting_configcheckbox(
+            'mod_daddy_enable',
+            'Visible name',
+            'Help',
+            1)
+    );
+
+//    $settings->add(new admin_setting_configtext('mod_lesson/mediawidth', get_string('mediawidth', 'lesson'),
+//        get_string('configmediawidth', 'lesson'), 640, PARAM_INT));
+}

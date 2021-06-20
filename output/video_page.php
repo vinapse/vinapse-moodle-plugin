@@ -9,6 +9,8 @@ use stdClass;
 
 class video_page implements renderable, templatable {
 
+    private $uuid;
+
     public function __construct($uuid) {
         $this->uuid = $uuid;
     }

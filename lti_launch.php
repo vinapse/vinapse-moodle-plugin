@@ -1,7 +1,7 @@
 <?php
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
-require_once(dirname(dirname(dirname(__FILE__))).'/local/daddyvideo/locallib.php');
+require_once(dirname(dirname(dirname(__FILE__))) . '/local/daddyvideo/locallib.php');
 
 $uuid = optional_param('uuid', NULL, PARAM_STRINGID);
 $department = optional_param('department', NULL, PARAM_STRIND);
