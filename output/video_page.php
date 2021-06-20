@@ -1,19 +1,22 @@
 <?php
-// Standard GPL and phpdocs
+
 namespace mod_daddyvideo\output;
 
+use moodle_url;
 use renderable;
 use renderer_base;
 use templatable;
 use stdClass;
 
-class video_page implements renderable, templatable {
+class video_page implements renderable, templatable
+{
 
     private $uuid;
     private $department;
     private $year;
 
-    public function __construct($uuid, $year, $department) {
+    public function __construct($uuid, $year, $department)
+    {
         $this->uuid = $uuid;
         $this->year = $year;
         $this->department = $department;
@@ -24,11 +27,17 @@ class video_page implements renderable, templatable {
      *
      * @return stdClass
      */
-    public function export_for_template(renderer_base $output) {
+    public function export_for_template(renderer_base $output)
+    {
         $data = new stdClass();
-        $data->uuid = $this->uuid;
-        $data->department = $this->department;
-        $data->year = $this->year;
+        $data->launch_url = new moodle_url(
+            '/mod/daddyvideo/lti_launch.php',
+            array(
+                'uuid' => $this->uuid,
+                'department' => $this->department,
+                'year' => $this->year
+            )
+        );
         return $data;
     }
 }
