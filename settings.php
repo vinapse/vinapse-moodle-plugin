@@ -27,10 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
     $settings->add(
-        new admin_setting_configcheckbox(
-            'mod_daddy_enable',
-            'Visible name',
-            'Help',
-            1)
+        new admin_setting_configtext(
+            'mod_daddyvideo/lti_provider_base_url',
+            get_string('setting_lti_provider_url', 'mod_daddyvideo'),
+            get_string('setting_lti_provider_url_desc', 'mod_daddyvideo'),
+            "",
+            PARAM_URL
+        )
     );
 }

@@ -35,3 +35,6 @@ $string['remoteuuid'] = 'Remote Uuid';
 $string['gotoupload'] = 'Create and go to upload';
 
 $string['daddyvideo:addinstance'] = 'Create new video resource';
+
+$string['setting_lti_provider_url'] = 'LTI provider URL';
+$string['setting_lti_provider_url_desc'] = 'The base URL of the LTI provider that was provided to you.';

@@ -14,10 +14,12 @@ class lti_helper
 {
     public static function daddy_request_lti_launch($uuid)
     {
+        $lti_base_url = get_config('mod_daddyvideo', 'lti_provider_base_url');
+
         if ($uuid === NULL) {
-            $endpoint = "https://dev-lti.txc2.eu/edit";
+            $endpoint = $lti_base_url . '/edit';
         } else {
-            $endpoint = "https://dev-lti.txc2.eu/view";
+            $endpoint = $lti_base_url . '/view';
         }
 
         $requestparams = array(
