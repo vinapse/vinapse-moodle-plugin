@@ -22,46 +22,21 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require(__DIR__.'/../../config.php');
+require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/output/video_page.php');
 
-// Course module id.
-$id = optional_param('id', 0, PARAM_INT);
+// Get course module ID
+$id = required_param('id', PARAM_INT);
 
-// Activity instance id.
-$d = optional_param('d', 0, PARAM_INT);
-
-if ($id) {
-    $cm = get_coursemodule_from_id('daddyvideo', $id, 0, false, MUST_EXIST);
-    $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
-} else if ($d) {
-    $moduleinstance = $DB->get_record('daddyvideo', array('id' => $n), '*', MUST_EXIST);
-    $course = $DB->get_record('course', array('id' => $moduleinstance->course), '*', MUST_EXIST);
-    $cm = get_coursemodule_from_instance('daddyvideo', $moduleinstance->id, $course->id, false, MUST_EXIST);
-} else {
-    print_error(get_string('missingidandcmid', 'mod_daddyvideo'));
-}
+list ($course, $cm) = get_course_and_cm_from_cmid($id, 'daddyvideo');
+$moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
 require_login($course, true, $cm);
-
-$modulecontext = context_module::instance($cm->id);
-/*
-$event = \mod_daddyvideo\event\course_module_viewed::create(array(
-    'objectid' => $moduleinstance->id,
-    'context' => $modulecontext
-));
-*/
-//$event->add_record_snapshot('course', $course);
-//$event->add_record_snapshot('daddyvideo', $moduleinstance);
-//$event->trigger();
 
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
-$PAGE->set_context($modulecontext);
-
 
 echo $OUTPUT->header();
 
