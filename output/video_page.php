@@ -10,16 +10,13 @@ use stdClass;
 
 class video_page implements renderable, templatable
 {
+    private $remoteuuid;
+    private $name;
 
-    private $uuid;
-    private $department;
-    private $year;
-
-    public function __construct($uuid, $year, $department)
+    public function __construct($remoteuuid, $name)
     {
-        $this->uuid = $uuid;
-        $this->year = $year;
-        $this->department = $department;
+        $this->remoteuuid = $remoteuuid;
+        $this->name = $name;
     }
 
     /**
@@ -31,14 +28,13 @@ class video_page implements renderable, templatable
     {
         $data = new stdClass();
 
-        $data->uuid = $this->uuid;
+        $data->uuid = $this->remoteuuid;
+        $data->name = $this->name;
 
         $data->launch_url = new moodle_url(
             '/mod/daddyvideo/lti_launch.php',
             array(
-                'uuid' => $this->uuid,
-                'department' => $this->department,
-                'year' => $this->year
+                'uuid' => $this->remoteuuid
             )
         );
 

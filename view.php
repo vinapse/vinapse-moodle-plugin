@@ -40,7 +40,7 @@ $PAGE->set_heading(format_string($course->fullname));
 
 echo $OUTPUT->header();
 
-$renderable = new \mod_daddyvideo\output\video_page($moduleinstance->remoteuuid, $moduleinstance->year, $moduleinstance->department);
+$renderable = new \mod_daddyvideo\output\video_page($moduleinstance->remoteuuid, $moduleinstance->name);
 echo $OUTPUT->render($renderable);
 
 echo $OUTPUT->footer();

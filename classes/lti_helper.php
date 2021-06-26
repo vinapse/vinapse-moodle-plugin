@@ -12,19 +12,16 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
 class lti_helper
 {
-    public static function daddy_request_lti_launch($uuid, $department, $year)
+    public static function daddy_request_lti_launch($uuid)
     {
-
         if ($uuid === NULL) {
             $endpoint = "https://dev-lti.txc2.eu/edit";
         } else {
             $endpoint = "https://dev-lti.txc2.eu/view";
         }
-        $requestparams = array(
-            'resource_id' => $uuid,
-            'department' => $department,
-            'year' => $year,
 
+        $requestparams = array(
+            'resource_id' => $uuid
         );
 
         $lti = new stdClass();
@@ -57,6 +54,5 @@ class lti_helper
 
         return $content;
     }
-
 }
 

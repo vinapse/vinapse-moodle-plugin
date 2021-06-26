@@ -29,6 +29,5 @@ defined('MOODLE_INTERNAL') || die();
  * Custom uninstallation procedure.
  */
 function xmldb_daddyvideo_uninstall() {
-
     return true;
 }

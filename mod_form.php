@@ -67,14 +67,6 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
         $mform->setType('remoteuuid', PARAM_TEXT);
 
-        // Adding the Department remote reference.
-        $mform->addElement('text', 'department', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
-        $mform->setType('department', PARAM_TEXT);
-
-        // Adding the Year remote reference.
-        $mform->addElement('text', 'year', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '8'));
-        $mform->setType('year', PARAM_TEXT);
-
         // Add standard elements.
         $this->standard_coursemodule_elements();
 
