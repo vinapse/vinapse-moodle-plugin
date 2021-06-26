@@ -35,4 +35,24 @@ if ($hassiteconfig) {
             PARAM_URL
         )
     );
+
+    $settings->add(
+        new admin_setting_configtext(
+            'mod_daddyvideo/lti_key',
+            get_string('setting_lti_key', 'mod_daddyvideo'),
+            get_string('setting_lti_key_desc', 'mod_daddyvideo'),
+            "",
+            PARAM_ALPHANUMEXT
+        )
+    );
+
+    $settings->add(
+        new admin_setting_configtext(
+            'mod_daddyvideo/lti_secret',
+            get_string('setting_lti_secret', 'mod_daddyvideo'),
+            get_string('setting_lti_secret_desc', 'mod_daddyvideo'),
+            "",
+            PARAM_ALPHANUMEXT
+        )
+    );
 }
