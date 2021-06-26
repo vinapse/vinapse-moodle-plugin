@@ -30,6 +30,9 @@ class video_page implements renderable, templatable
     public function export_for_template(renderer_base $output)
     {
         $data = new stdClass();
+
+        $data->uuid = $this->uuid;
+
         $data->launch_url = new moodle_url(
             '/mod/daddyvideo/lti_launch.php',
             array(
@@ -38,6 +41,7 @@ class video_page implements renderable, templatable
                 'year' => $this->year
             )
         );
+
         return $data;
     }
 }
