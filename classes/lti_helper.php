@@ -16,7 +16,7 @@ class lti_helper
     {
         $lti_base_url = get_config('mod_daddyvideo', 'lti_provider_base_url');
 
-        if ($uuid === NULL) {
+        if (empty($uuid)) {
             $endpoint = $lti_base_url . '/edit';
         } else {
             $endpoint = $lti_base_url . '/view';
@@ -27,8 +27,9 @@ class lti_helper
         );
 
         $lti = new stdClass();
-        $lti->resourcekey = "unitn";
-        $lti->password = "secret1";
+
+        $lti->resourcekey = get_config('mod_daddyvideo', 'lti_provider_key');
+        $lti->password = get_config('mod_daddyvideo', 'lti_provider_secret');
 
         $debug = false;
 
@@ -57,4 +58,3 @@ class lti_helper
         return $content;
     }
 }
-
