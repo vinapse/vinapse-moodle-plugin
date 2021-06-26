@@ -8,6 +8,9 @@ require_login();
 
 // TODO: verify the user can access the resource?
 
+global $DB;
+global $USER;
+
 // Read the course module ID
 $cmid = required_param('cmid', PARAM_INT);
 
@@ -20,6 +23,6 @@ $canedit = has_capability('mod/daddyvideo:addinstance', context_course::instance
 $role = $canedit ? 'Instructor' : 'Learner';
 
 // Take off
-$content = lti_helper::daddy_request_lti_launch($moduleinstance->remoteuuid, $role);
+$content = lti_helper::daddy_request_lti_launch($moduleinstance->remoteuuid, $role, $USER->id, $course->id);
 
 echo $content;
