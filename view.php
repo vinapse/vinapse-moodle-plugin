@@ -27,11 +27,15 @@ require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/output/video_page.php');
 
 // Get course module ID
-$id = required_param('id', PARAM_INT);
+$cmid = required_param('id', PARAM_INT);
 
-list ($course, $cm) = get_course_and_cm_from_cmid($id, 'daddyvideo');
+// Get course and course module records
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
+
+// Get the module instance from its own table
 $moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
+// Check that the user can see this course module
 require_login($course, true, $cm);
 
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cm->id));
@@ -40,7 +44,7 @@ $PAGE->set_heading(format_string($course->fullname));
 
 echo $OUTPUT->header();
 
-$renderable = new \mod_daddyvideo\output\video_page($moduleinstance->remoteuuid, $moduleinstance->name);
+$renderable = new \mod_daddyvideo\output\video_page($cmid, $moduleinstance->name);
 echo $OUTPUT->render($renderable);
 
 echo $OUTPUT->footer();

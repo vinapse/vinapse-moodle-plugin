@@ -12,24 +12,18 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
 class lti_helper
 {
-    public static function daddy_request_lti_launch($uuid)
+    public static function daddy_request_lti_launch($uuid, $role)
     {
-        $lti_base_url = get_config('mod_daddyvideo', 'lti_provider_base_url');
-
-        if (empty($uuid)) {
-            $endpoint = $lti_base_url . '/edit';
-        } else {
-            $endpoint = $lti_base_url . '/view';
-        }
+        $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
 
         $requestparams = array(
-            'resource_id' => $uuid
+            'resource_id' => $uuid,
+            'role' => $role
         );
 
         $lti = new stdClass();
-
-        $lti->resourcekey = get_config('mod_daddyvideo', 'lti_provider_key');
-        $lti->password = get_config('mod_daddyvideo', 'lti_provider_secret');
+        $lti->key = get_config('mod_daddyvideo', 'lti_key');
+        $lti->secret = get_config('mod_daddyvideo', 'lti_secret');
 
         $debug = false;
 
@@ -43,7 +37,7 @@ class lti_helper
          * @param string $oauthconsumersecret
          * @return array|null
          */
-        $params = lti_sign_parameters($requestparams, $endpoint, 'POST', $lti->resourcekey, $lti->password);
+        $params = lti_sign_parameters($requestparams, $endpoint, 'POST', $lti->key, $lti->secret);
 
         /**
          * Posts the launch petition HTML
