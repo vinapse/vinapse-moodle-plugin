@@ -26,6 +26,10 @@ require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/output/video_page.php');
 
+/** @var moodle_database $DB */
+/** @var moodle_page $PAGE */
+/** @var core_renderer $OUTPUT */
+
 // Get course module ID
 $cmid = required_param('id', PARAM_INT);
 
@@ -38,9 +42,10 @@ $moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*
 // Check that the user can see this course module
 require_login($course, true, $cm);
 
-$PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));
 $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
+$PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmid));
 
 echo $OUTPUT->header();
 
