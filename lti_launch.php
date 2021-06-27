@@ -8,8 +8,8 @@ require_login();
 
 // TODO: verify the user can access the resource?
 
-global $DB;
-global $USER;
+/** @var moodle_database $DB */
+/** @var core_user $USER */
 
 // Read the course module ID
 $cmid = required_param('cmid', PARAM_INT);

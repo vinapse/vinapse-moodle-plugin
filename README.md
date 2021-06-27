@@ -11,7 +11,7 @@ Go to Moodle admin to complete the installation.
 
 Make sure to follow the steps in [Developer mode](https://docs.moodle.org/dev/Developer_Mode) while developing.
 
-If you change JavaScript files in `amd`, make sure to rebuild the modules.
+If you change JavaScript files in `amd/src`, make sure to rebuild the modules.
 
 ```sh
 cd $MOODLE_PATH
