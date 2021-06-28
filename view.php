@@ -45,7 +45,12 @@ require_login($course, true, $cm);
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));
 $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
-$PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmid));
+
+// Get the hostname of the LTI provider URL and pass it to the JavaScript module
+$lti_endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
+$lti_hostname = parse_url($lti_endpoint, PHP_URL_HOST);
+
+$PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmid, 'lti_host' => $lti_hostname));
 
 echo $OUTPUT->header();
 

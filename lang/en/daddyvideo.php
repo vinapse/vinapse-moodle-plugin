@@ -42,3 +42,7 @@ $string['setting_lti_key'] = 'LTI key';
 $string['setting_lti_key_desc'] = 'The LTI key that was provided to you.';
 $string['setting_lti_secret'] = 'LTI secret';
 $string['setting_lti_secret_desc'] = 'The LTI secret that was provided to you.';
+
+$string['error_popup_title'] = 'Error';
+$string['error_popup_message'] = 'There was an unexpected error while preparing the upload. Please refresh the page and start again.';
+$string['error_popup_button'] = 'Refresh';
