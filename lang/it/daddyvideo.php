@@ -28,21 +28,21 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'DADdy video';
 $string['modulename'] = 'DADdy video';
 $string['modulenameplural'] = 'DADdy video';
-$string['daddyvideoname'] = 'Title';
-$string['pluginadministration'] = 'DADdy video plugin administration';
+$string['daddyvideoname'] = 'Titolo';
+$string['pluginadministration'] = 'Amministrazione plugin DADdy video';
 
-$string['remoteuuid'] = 'Remote UUID';
-$string['gotoupload'] = 'Create and go to upload';
+$string['remoteuuid'] = 'UUID remoto';
+$string['gotoupload'] = 'Crea e vai al caricamento video';
 
-$string['daddyvideo:addinstance'] = 'Add video resource';
+$string['daddyvideo:addinstance'] = 'Aggiungere risorse video';
 
-$string['setting_lti_provider_url'] = 'LTI provider URL';
-$string['setting_lti_provider_url_desc'] = 'The base URL of the LTI provider that was provided to you.';
+$string['setting_lti_provider_url'] = 'URL provider LTI';
+$string['setting_lti_provider_url_desc'] = 'L\'URL base del provider LTI, che ti è stato fornito.';
 $string['setting_lti_key'] = 'LTI key';
-$string['setting_lti_key_desc'] = 'The LTI key that was provided to you.';
+$string['setting_lti_key_desc'] = 'La consumer key LTI che ti è stata fornita.';
 $string['setting_lti_secret'] = 'LTI secret';
-$string['setting_lti_secret_desc'] = 'The LTI secret that was provided to you.';
+$string['setting_lti_secret_desc'] = 'La password segreta LTI che ti è stata fornita.';
 
-$string['error_popup_title'] = 'Error';
-$string['error_popup_message'] = 'There was an unexpected error while preparing the upload. Please refresh the page and start again.';
-$string['error_popup_button'] = 'Refresh';
+$string['error_popup_title'] = 'Errore';
+$string['error_popup_message'] = 'Si è verificato un errore inaspettato nella preparazione dell\'upload. Ricarica la pagina e riprova.';
+$string['error_popup_button'] = 'Ricarica';
