@@ -45,10 +45,10 @@ class mod_daddyvideo_mod_form extends moodleform_mod
 
         $mform = $this->_form;
 
-        // Adding the "general" fieldset, where all the common settings are shown.
+        // Add the "general" fieldset, where all the common settings are shown
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
-        // Adding the standard "name" field.
+        // Add the standard "name" field
         $mform->addElement('text', 'name', get_string('daddyvideoname', 'mod_daddyvideo'), array('size' => '64'));
 
         if (!empty($CFG->formatstringstriptags)) {
@@ -60,20 +60,24 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
 
-        // Adding the standard "intro" and "introformat" fields.
+        // Add the standard "intro" and "introformat" fields
         $this->standard_intro_elements();
 
-        // Adding the Uuid remote reference.
-        $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
-        $mform->setType('remoteuuid', PARAM_TEXT);
+        // If we're editing an existing resource
+        if ($this->get_instance() != "") {
+            // Add the UUID field
+            $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+            $mform->setType('remoteuuid', PARAM_TEXT);
+        }
 
-        // Add standard elements.
+        // Add standard elements
         $this->standard_coursemodule_elements();
 
-        // Add standard buttons.
         if ($this->get_instance() == "") {
+            // Add create & upload button
             $this->add_action_buttons(true, get_string('gotoupload', 'mod_daddyvideo'), false);
         } else {
+            // Add standard buttons (edit mode)
             $this->add_action_buttons();
         }
     }
