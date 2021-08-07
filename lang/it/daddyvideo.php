@@ -31,8 +31,10 @@ $string['modulenameplural'] = 'DADdy video';
 $string['daddyvideoname'] = 'Titolo';
 $string['pluginadministration'] = 'Amministrazione plugin DADdy video';
 
-$string['remoteuuid'] = 'UUID remoto';
-$string['gotoupload'] = 'Crea e vai al caricamento video';
+$string['form_remoteuuid'] = 'UUID remoto';
+$string['form_gotoupload'] = 'Crea e vai al caricamento del video';
+$string['form_uploadhint_label'] = 'Caricamento video';
+$string['form_uploadhint_text'] = 'Per caricare il file video, procedi salvando la risorsa. Avrai poi la possibilità di effettuare l\'upload.';
 
 $string['daddyvideo:addinstance'] = 'Aggiungere risorse video';
 

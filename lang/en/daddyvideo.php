@@ -31,8 +31,10 @@ $string['modulenameplural'] = 'DADdy video';
 $string['daddyvideoname'] = 'Title';
 $string['pluginadministration'] = 'DADdy video plugin administration';
 
-$string['remoteuuid'] = 'Remote UUID';
-$string['gotoupload'] = 'Create and go to upload';
+$string['form_remoteuuid'] = 'Remote UUID';
+$string['form_gotoupload'] = 'Create and go to video upload';
+$string['form_uploadhint_label'] = 'Video upload';
+$string['form_uploadhint_text'] = 'To upload the video file, proceed by saving the resource. You will then be able to do the upload.';
 
 $string['daddyvideo:addinstance'] = 'Add video resource';
 

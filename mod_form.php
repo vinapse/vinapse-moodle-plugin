@@ -66,8 +66,12 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         // If we're editing an existing resource
         if ($this->get_instance() != "") {
             // Add the UUID field
-            $mform->addElement('text', 'remoteuuid', get_string('remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+            $mform->addElement('text', 'remoteuuid', get_string('form_remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
             $mform->setType('remoteuuid', PARAM_TEXT);
+        } else {
+            $mform->addElement('static', 'uploadhint',
+                get_string('form_uploadhint_label', 'mod_daddyvideo'),
+                get_string('form_uploadhint_text', 'mod_daddyvideo'));
         }
 
         // Add standard elements
@@ -75,7 +79,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod
 
         if ($this->get_instance() == "") {
             // Add create & upload button
-            $this->add_action_buttons(true, get_string('gotoupload', 'mod_daddyvideo'), false);
+            $this->add_action_buttons(true, get_string('form_gotoupload', 'mod_daddyvideo'), false);
         } else {
             // Add standard buttons (edit mode)
             $this->add_action_buttons();
