@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package     mod_daddyvideo
+ * @copyright   2021 TxC2 <info@txc2.eu>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace mod_daddyvideo\output;
 
 use moodle_url;
