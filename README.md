@@ -22,6 +22,6 @@ grunt # or grunt watch
 
 ## Deployment
 
-Create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`. Then install through the Moodle admin page. 
+Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`. Then install through the Moodle admin page.
 
-TODO: script
+**NOTE:** the script creates the package starting from the `HEAD` of the current branch, i.e. the latest commit.
