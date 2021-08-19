@@ -24,7 +24,7 @@ class lti_helper
         $requestparams['roles'] = $role;
         $requestparams['user_id'] = $userid;
         $requestparams['context_id'] = $courseid;
-        $requestparams['custom_resource_id'] = $uuid;
+        $requestparams['custom_lecture_uuid'] = $uuid;
         $requestparams['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $requestparams['custom_endpoint'] = $endpoint;
 
