@@ -50,15 +50,9 @@ class mod_daddyvideo_mod_form extends moodleform_mod
 
         // Add the standard "name" field
         $mform->addElement('text', 'name', get_string('daddyvideoname', 'mod_daddyvideo'), array('size' => '64'));
-
-        if (!empty($CFG->formatstringstriptags)) {
-            $mform->setType('name', PARAM_TEXT);
-        } else {
-            $mform->setType('name', PARAM_CLEANHTML);
-        }
-
+        $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
-        $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 36), 'maxlength', 36, 'client');
 
         // Add the standard "intro" and "introformat" fields
         $this->standard_intro_elements();
@@ -66,7 +60,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         // If we're editing an existing resource
         if ($this->get_instance() != "") {
             // Add the UUID field
-            $mform->addElement('text', 'remoteuuid', get_string('form_remoteuuid', 'mod_daddyvideo'), array('size' => '36'));
+            $mform->addElement('text', 'remoteuuid', get_string('form_remoteuuid', 'mod_daddyvideo'), array('size' => '40'));
             $mform->setType('remoteuuid', PARAM_TEXT);
         } else {
             $mform->addElement('static', 'uploadhint',
