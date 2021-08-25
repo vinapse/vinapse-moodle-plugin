@@ -23,8 +23,11 @@
  */
 
 require(__DIR__ . '/../../config.php');
-
 require_once(__DIR__ . '/lib.php');
+
+/** @var moodle_database $DB */
+/** @var moodle_page $PAGE */
+/** @var core_renderer $OUTPUT */
 
 $id = required_param('id', PARAM_INT);
 
@@ -53,14 +56,14 @@ $table = new html_table();
 $table->attributes['class'] = 'generaltable mod_index';
 
 if ($course->format == 'weeks') {
-    $table->head = array(get_string('week'), get_string('name'));
-    $table->align = array('center', 'left');
+    $table->head = array(get_string('week'), get_string('name'), get_string('moduleintro'));
+    $table->align = array('center', 'left', 'left');
 } else if ($course->format == 'topics') {
-    $table->head = array(get_string('topic'), get_string('name'));
-    $table->align = array('center', 'left', 'left', 'left');
+    $table->head = array(get_string('topic'), get_string('name'), get_string('moduleintro'));
+    $table->align = array('center', 'left', 'left');
 } else {
-    $table->head = array(get_string('name'));
-    $table->align = array('left', 'left', 'left');
+    $table->head = array(get_string('name'), get_string('moduleintro'));
+    $table->align = array('left', 'left');
 }
 
 foreach ($daddyvideos as $daddyvideo) {
@@ -75,10 +78,12 @@ foreach ($daddyvideos as $daddyvideo) {
             format_string($daddyvideo->name, true));
     }
 
+    $intro = format_module_intro('daddyvideo', $daddyvideo, $daddyvideo->coursemodule);
+
     if ($course->format == 'weeks' or $course->format == 'topics') {
-        $table->data[] = array($daddyvideo->section, $link);
+        $table->data[] = array($daddyvideo->section, $link, $intro);
     } else {
-        $table->data[] = array($link);
+        $table->data[] = array($link, $intro);
     }
 }
 
