@@ -41,8 +41,6 @@ class mod_daddyvideo_mod_form extends moodleform_mod
      */
     public function definition()
     {
-        global $CFG;
-
         $mform = $this->_form;
 
         // Add the "general" fieldset, where all the common settings are shown

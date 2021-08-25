@@ -30,8 +30,10 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $feature Constant representing the feature.
  * @return true | null True if the feature is supported, null otherwise.
  */
-function daddyvideo_supports($feature) {
+function daddyvideo_supports($feature)
+{
     switch ($feature) {
+        case FEATURE_SHOW_DESCRIPTION:
         case FEATURE_MOD_INTRO:
             return true;
         default:
@@ -50,7 +52,8 @@ function daddyvideo_supports($feature) {
  * @param mod_daddyvideo_mod_form $mform The form.
  * @return int The id of the newly inserted record.
  */
-function daddyvideo_add_instance($moduleinstance, $mform = null) {
+function daddyvideo_add_instance($moduleinstance, $mform = null)
+{
     global $DB;
 
     $moduleinstance->timecreated = time();
@@ -70,7 +73,8 @@ function daddyvideo_add_instance($moduleinstance, $mform = null) {
  * @param mod_daddyvideo_mod_form $mform The form.
  * @return bool True if successful, false otherwise.
  */
-function daddyvideo_update_instance($moduleinstance, $mform = null) {
+function daddyvideo_update_instance($moduleinstance, $mform = null)
+{
     global $DB;
 
     $moduleinstance->timemodified = time();
@@ -85,7 +89,8 @@ function daddyvideo_update_instance($moduleinstance, $mform = null) {
  * @param int $id Id of the module instance.
  * @return bool True if successful, false on failure.
  */
-function daddyvideo_delete_instance($id) {
+function daddyvideo_delete_instance($id)
+{
     global $DB;
 
     $exists = $DB->get_record('daddyvideo', array('id' => $id));
