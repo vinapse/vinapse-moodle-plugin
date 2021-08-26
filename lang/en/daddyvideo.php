@@ -48,3 +48,5 @@ $string['setting_lti_secret_desc'] = 'The LTI secret that was provided to you.';
 $string['error_popup_title'] = 'Error';
 $string['error_popup_message'] = 'There was an unexpected error while preparing the upload. Please refresh the page and start again.';
 $string['error_popup_button'] = 'Refresh';
+
+$string['error_not_configured'] = 'Missing LTI provider URL. Please contact support.';

@@ -19,6 +19,10 @@ class lti_helper
     public static function daddy_request_lti_launch($uuid, $role, $userid, $courseid, $title, $description)
     {
         $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
+        if (empty($endpoint)) {
+            return get_string('error_not_configured', 'daddyvideo');
+        }
+
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
 
         $requestparams['roles'] = $role;

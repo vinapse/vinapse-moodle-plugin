@@ -48,3 +48,5 @@ $string['setting_lti_secret_desc'] = 'La password segreta LTI che ti è stata fo
 $string['error_popup_title'] = 'Errore';
 $string['error_popup_message'] = 'Si è verificato un errore inaspettato nella preparazione dell\'upload. Ricarica la pagina e riprova.';
 $string['error_popup_button'] = 'Ricarica';
+
+$string['error_not_configured'] = 'URL del provider LTI mancante. Per favore contatta il supporto.';
