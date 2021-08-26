@@ -39,7 +39,7 @@ list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
 // Get the module instance from its own table
 $moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
-// Check that the user can see this course module
+// Verify that the user can see this course module
 require_login($course, true, $cm);
 
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));

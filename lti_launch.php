@@ -10,18 +10,19 @@ use mod_daddyvideo\lti_helper;
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 
-require_login();
-
-// TODO: verify the user can access the resource (?)
-
 /** @var moodle_database $DB */
 /** @var core_user $USER */
 
 // Read the course module ID
 $cmid = required_param('cmid', PARAM_INT);
 
-// Load the course, course module, and module instance from its own table
+// Load the course and course module
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
+
+// Verify that the user can see this course module
+require_login($course, true, $cm);
+
+// Load module instance from its own table
 $moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
 // Check whether the current user has the capability to edit module instances
