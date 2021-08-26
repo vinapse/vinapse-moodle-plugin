@@ -12,7 +12,7 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 
 require_login();
 
-// TODO: verify the user can access the resource?
+// TODO: verify the user can access the resource (?)
 
 /** @var moodle_database $DB */
 /** @var core_user $USER */
@@ -29,6 +29,13 @@ $canedit = has_capability('mod/daddyvideo:addinstance', context_course::instance
 $role = $canedit ? 'Instructor' : 'Learner';
 
 // Take off
-$content = lti_helper::daddy_request_lti_launch($moduleinstance->remoteuuid, $role, $USER->id, $course->id);
+$content = lti_helper::daddy_request_lti_launch(
+    $moduleinstance->remoteuuid,
+    $role,
+    $USER->id,
+    $course->id,
+    $moduleinstance->name,
+    $moduleinstance->intro
+);
 
 echo $content;

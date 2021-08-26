@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
 class lti_helper
 {
-    public static function daddy_request_lti_launch($uuid, $role, $userid, $courseid)
+    public static function daddy_request_lti_launch($uuid, $role, $userid, $courseid, $title, $description)
     {
         $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
@@ -25,6 +25,8 @@ class lti_helper
         $requestparams['user_id'] = $userid;
         $requestparams['context_id'] = $courseid;
         $requestparams['custom_lecture_uuid'] = $uuid;
+        $requestparams['custom_lecture_title'] = $title;
+        $requestparams['custom_lecture_description'] = $description;
         $requestparams['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $requestparams['custom_endpoint'] = $endpoint;
 
