@@ -50,7 +50,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         $mform->addElement('text', 'name', get_string('daddyvideoname', 'mod_daddyvideo'), array('size' => '64'));
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
-        $mform->addRule('name', get_string('maximumchars', '', 36), 'maxlength', 36, 'client');
+        $mform->addRule('name', get_string('maximumchars', '', 64), 'maxlength', 64, 'client');
 
         // Add the standard "intro" and "introformat" fields
         $this->standard_intro_elements();
