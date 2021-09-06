@@ -26,8 +26,9 @@ function onMessage(cmid, ltiHostname, event) {
 
     let data = event.data;
     if (data.type == 'reload') {
-        window.console.log(`${PREFIX} Reloading...`);
         reload();
+    } else if (data.type == 'resize') {
+        setHeight(data.height);
     } else {
         updateUUID(cmid, data);
     }
@@ -76,5 +77,12 @@ function updateUUID(cmid, data) {
 }
 
 function reload() {
+    window.console.log(`${PREFIX} Reloading...`);
     window.location.reload(true);
+}
+
+function setHeight(height) {
+    window.console.log(`${PREFIX} Setting iframe height to ${height}`);
+    const iframe = document.getElementById('daddyvideo-embed');
+    iframe.style.height = (height + 25) + 'px';
 }
