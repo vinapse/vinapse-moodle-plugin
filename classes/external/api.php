@@ -20,7 +20,7 @@ class api extends external_api
         return new external_function_parameters(
             array(
                 'cmid' => new external_value(PARAM_INT, 'ID of the course module'),
-                'uuid' => new external_value(PARAM_ALPHANUMEXT, 'Remote UUID to set'),
+                'uuid' => new external_value(PARAM_ALPHANUMEXT, 'Remote UUID to set', VALUE_OPTIONAL),
             )
         );
     }
@@ -30,7 +30,7 @@ class api extends external_api
         return new external_value(PARAM_ALPHA, 'Status description');
     }
 
-    public static function set_uuid($cmid, $uuid)
+    public static function set_uuid($cmid, $uuid = null)
     {
         global $DB;
 

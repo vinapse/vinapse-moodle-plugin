@@ -24,11 +24,36 @@ function onMessage(cmid, ltiHostname, event) {
         return;
     }
 
-    window.console.log(`${PREFIX} Setting UUID ${event.data.uuid} for cmid ${cmid}`);
+    let data = event.data;
+    if (data.type == 'reload') {
+        window.console.log(`${PREFIX} Reloading...`);
+        reload();
+    } else {
+        updateUUID(cmid, data);
+    }
+}
+
+function updateUUID(cmid, data) {
+    let uuid = '';
+    let shouldReload = false;
+    if (data.type == 'update') {
+        uuid = data.uuid;
+        window.console.log(`${PREFIX} Setting UUID ${uuid} for cmid ${cmid}`);
+    } else if (data.type == 'reset') {
+        window.console.log(`${PREFIX} Resetting cmid ${cmid}`);
+        shouldReload = true;
+    } else {
+        return;
+    }
 
     Ajax.call([{
         methodname: "mod_daddyvideo_set_uuid",
-        args: {cmid: cmid, uuid: event.data.uuid},
+        args: {cmid: cmid, uuid: uuid},
+        done: () => {
+            if (shouldReload) {
+                reload();
+            }
+        },
         fail: (err) => {
             window.console.error(err);
 
@@ -43,9 +68,13 @@ function onMessage(cmid, ltiHostname, event) {
                 Str.get_string('error_popup_button', 'daddyvideo'))
                 .then(function (modal) {
                     modal.getRoot().on(ModalEvents.hidden, function () {
-                        window.location.reload(true);
+                        shouldReload();
                     });
                 });
         }
     }]);
+}
+
+function reload() {
+    window.location.reload(true);
 }
