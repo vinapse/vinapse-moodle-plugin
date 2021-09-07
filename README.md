@@ -16,6 +16,7 @@ If you change JavaScript files in `amd/src`, make sure to rebuild the modules.
 ```sh
 cd $MOODLE_PATH
 npm install
+npm install -g grunt-cli
 cd mod/daddyvideo
 grunt # or grunt watch
 ```

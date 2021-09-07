@@ -10,6 +10,7 @@ import Notification from 'core/notification';
 import ModalEvents from 'core/modal_events';
 
 const PREFIX = 'mod_daddyvideo:';
+let timer;
 
 export const init = (cmid, ltiHostname) => {
     window.console.log(`${PREFIX} Registering message listener...`);
@@ -82,7 +83,16 @@ function reload() {
 }
 
 function setHeight(height) {
-    window.console.log(`${PREFIX} Setting iframe height to ${height}`);
+    let cap = window.innerHeight - 250;
+    height = Math.min(height, cap);
+    debounce(() => {
+        window.console.log(`${PREFIX} Set iframe height to ${height}`);
+    });
     const iframe = document.getElementById('daddyvideo-embed');
     iframe.style.height = (height + 25) + 'px';
+}
+
+function debounce(func) {
+    clearTimeout(timer);
+    timer = setTimeout(func, 1000);
 }
