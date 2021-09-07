@@ -37,7 +37,19 @@ function xmldb_daddyvideo_upgrade($oldversion)
 
     $dbman = $DB->get_manager();
 
-    // Add migrations here
+    if ($oldversion < 2021090700) {
+
+        // Changing precision of field name on table daddyvideo to (100).
+        $table = new xmldb_table('daddyvideo');
+        $field = new xmldb_field('name', XMLDB_TYPE_CHAR, '100', null, XMLDB_NOTNULL, null, null, 'course');
+
+        // Launch change of precision for field name.
+        $dbman->change_field_precision($table, $field);
+
+        // Daddyvideo savepoint reached.
+        upgrade_mod_savepoint(true, 2021090700, 'daddyvideo');
+    }
+
 
     return true;
 }
