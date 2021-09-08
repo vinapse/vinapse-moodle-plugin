@@ -90,6 +90,7 @@ function setHeight(height) {
     });
     const iframe = document.getElementById('daddyvideo-embed');
     iframe.style.height = (height + 25) + 'px';
+    iframe.focus();
 }
 
 function debounce(func) {
