@@ -83,7 +83,7 @@ function reload() {
 }
 
 function setHeight(height) {
-    let cap = window.innerHeight - 250;
+    let cap = window.innerHeight - 200;
     height = Math.min(height, cap);
     debounce(() => {
         window.console.log(`${PREFIX} Set iframe height to ${height}`);
