@@ -29,7 +29,7 @@ function onMessage(cmid, ltiHostname, event) {
     if (data.type == 'reload') {
         reload();
     } else if (data.type == 'resize') {
-        setHeight(data.height);
+        setHeight(data.height, data.force);
     } else {
         updateUUID(cmid, data);
     }
@@ -82,9 +82,11 @@ function reload() {
     window.location.reload(true);
 }
 
-function setHeight(height) {
-    let cap = window.innerHeight - 200;
-    height = Math.min(height, cap);
+function setHeight(height, force) {
+    if (!force) {
+        let cap = window.innerHeight - 200;
+        height = Math.min(height, cap);
+    }
     debounce(() => {
         window.console.log(`${PREFIX} Set iframe height to ${height}`);
     });
