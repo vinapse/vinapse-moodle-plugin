@@ -88,7 +88,7 @@ function setHeight(height, force) {
         height = Math.min(height, cap);
     }
     debounce(() => {
-        window.console.log(`${PREFIX} Set iframe height to ${height}`);
+        window.console.log(`${PREFIX} Set iframe height to ${height}. Forced: ${force}`);
     });
     const iframe = document.getElementById('daddyvideo-embed');
     iframe.style.height = (height + 25) + 'px';
