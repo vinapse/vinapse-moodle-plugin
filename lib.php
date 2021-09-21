@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * Return if the plugin supports $feature.
  *
  * @param string $feature Constant representing the feature.
- * @return true | null True if the feature is supported, null otherwise.
+ * @return mixed True if module supports feature, false if not, null if doesn't know
  */
 function daddyvideo_supports($feature)
 {
@@ -36,6 +36,8 @@ function daddyvideo_supports($feature)
         case FEATURE_SHOW_DESCRIPTION:
         case FEATURE_MOD_INTRO:
             return true;
+        case FEATURE_MOD_ARCHETYPE:
+            return MOD_ARCHETYPE_RESOURCE;
         default:
             return null;
     }
