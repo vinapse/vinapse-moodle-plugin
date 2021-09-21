@@ -49,7 +49,7 @@ echo $OUTPUT->heading($modulenameplural);
 $daddyvideos = get_all_instances_in_course('daddyvideo', $course);
 
 if (empty($daddyvideos)) {
-    notice(get_string('no$daddyvideoinstances', 'mod_daddyvideo'), new moodle_url('/course/view.php', array('id' => $course->id)));
+    notice(get_string('noresources', 'mod_daddyvideo'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $table = new html_table();

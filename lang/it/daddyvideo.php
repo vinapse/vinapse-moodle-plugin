@@ -30,6 +30,7 @@ $string['modulename'] = 'DADdy video';
 $string['modulenameplural'] = 'DADdy video';
 $string['daddyvideoname'] = 'Titolo';
 $string['pluginadministration'] = 'Amministrazione plugin DADdy video';
+$string['noresources'] = 'Nessuna risorsa video trovata in questo corso.';
 
 $string['form_remoteuuid'] = 'UUID remoto';
 $string['form_gotoupload'] = 'Crea e vai al caricamento del video';
