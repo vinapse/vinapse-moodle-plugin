@@ -10,11 +10,13 @@ import Notification from 'core/notification';
 import ModalEvents from 'core/modal_events';
 
 const PREFIX = 'mod_daddyvideo:';
-let timer;
+let lastRequestedHeight = null;
+let windowHeight = window.innerHeight;
 
 export const init = (cmid, ltiHostname) => {
     window.console.log(`${PREFIX} Registering message listener...`);
     window.addEventListener('message', onMessage.bind(this, cmid, ltiHostname));
+    window.addEventListener('resize', onWindowResize);
 };
 
 function onMessage(cmid, ltiHostname, event) {
@@ -82,20 +84,30 @@ function reload() {
     window.location.reload(true);
 }
 
+function onWindowResize() {
+    if (lastRequestedHeight && window.innerHeight != windowHeight) {
+        windowHeight = window.innerHeight;
+        setHeight(lastRequestedHeight, false);
+    }
+}
+
 function setHeight(height, force) {
     if (!force) {
-        let cap = window.innerHeight - 200;
-        height = Math.min(height, cap);
+        lastRequestedHeight = height;
+        let min = 300;
+        let max = window.innerHeight - 200;
+        height = constrainBetween(height, min, max);
+    } else {
+        lastRequestedHeight = null;
     }
-    debounce(() => {
-        window.console.log(`${PREFIX} Set iframe height to ${height}. Forced: ${force}`);
-    });
+
     const iframe = document.getElementById('daddyvideo-embed');
-    iframe.style.height = (height + 25) + 'px';
+    iframe.style.height = `${height}px`;
     iframe.focus();
 }
 
-function debounce(func) {
-    clearTimeout(timer);
-    timer = setTimeout(func, 1000);
+function constrainBetween(value, min, max) {
+    value = Math.min(value, max);
+    value = Math.max(value, min);
+    return value;
 }
