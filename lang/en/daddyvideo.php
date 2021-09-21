@@ -28,6 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'DADdy video';
 $string['modulename'] = 'DADdy video';
 $string['modulenameplural'] = 'DADdy video';
+$string['modulename_help'] = 'The DADdy video module enables a teacher to upload a video file of a lecture, making it available to students through an advanced video player.
+
+Once the resource is created, you will be given the possibility to upload a video file and fill some additional information about the lecture. The video will then be processed in a few minutes. 
+
+The video player consists of advanced features to aid the student in the fruition of the lecture, e.g. automatic slides detection, sections extraction, keywords extraction, turbo mode, etc.';
 $string['daddyvideoname'] = 'Title';
 $string['pluginadministration'] = 'DADdy video plugin administration';
 $string['noresources'] = 'No video resources found in this course.';
