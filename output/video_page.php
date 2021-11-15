@@ -38,7 +38,7 @@ class video_page implements renderable, templatable
         $data->cmid = $this->cmid;
 
         $data->launch_url = new moodle_url(
-            '/mod/daddyvideo/lti_launch.php',
+            '/mod/daddyvideo/launch.php',
             array(
                 'cmid' => $this->cmid
             )
