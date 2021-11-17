@@ -30,20 +30,18 @@ class lti_helper
             'context_id' => $courseid,
             'custom_lecture_uuid' => $uuid,
             'custom_lecture_title' => $title,
-            'custom_lecture_description' => $description,
-            'custom_plugin_version' => get_config('mod_daddyvideo', 'version')
+            'custom_lecture_description' => $description
         ];
 
         return self::generate_launch_form($params);
     }
 
-    public static function daddy_request_lti_launch_generic(int $userid, string $destinationurl)
+    public static function daddy_request_lti_launch_generic(int $userid, string $destinationpath)
     {
         $params = [
             'type' => 'generic',
             'user_id' => $userid,
-            'custom_plugin_version' => get_config('mod_daddyvideo', 'version'),
-            'destination_url' => $destinationurl
+            'destination_path' => $destinationpath
         ];
 
         return self::generate_launch_form($params);
@@ -61,6 +59,7 @@ class lti_helper
 
         // Add request-specific parameters
         $params['custom_endpoint'] = $endpoint;
+        $params['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $requestparams = array_merge($requestparams, $params);
 
         $key = get_config('mod_daddyvideo', 'lti_key');
