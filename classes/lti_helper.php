@@ -26,7 +26,7 @@ class lti_helper
                                                             string $description)
     {
         $params = [
-            'type' => 'lecture',
+            'custom_type' => 'lecture',
             'roles' => $role,
             'user_id' => $userid,
             'context_id' => $courseid,
@@ -43,9 +43,9 @@ class lti_helper
     public static function daddy_request_lti_launch_generic(int $userid, string $destinationpath)
     {
         $params = [
-            'type' => 'generic',
+            'custom_type' => 'generic',
             'user_id' => $userid,
-            'destination_path' => $destinationpath
+            'custom_destination_path' => $destinationpath
         ];
 
         return self::generate_launch_form($params);
