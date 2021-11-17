@@ -16,29 +16,58 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
 class lti_helper
 {
-    public static function daddy_request_lti_launch($uuid, $role, $userid, $courseid, $title, $description)
+    public static function daddy_request_lti_launch_lecture(string $uuid,
+                                                            string $role,
+                                                            int    $userid,
+                                                            int    $courseid,
+                                                            string $title,
+                                                            string $description)
+    {
+        $params = [
+            'type' => 'lecture',
+            'roles' => $role,
+            'user_id' => $userid,
+            'context_id' => $courseid,
+            'custom_lecture_uuid' => $uuid,
+            'custom_lecture_title' => $title,
+            'custom_lecture_description' => $description,
+            'custom_plugin_version' => get_config('mod_daddyvideo', 'version')
+        ];
+
+        return self::generate_launch_form($params);
+    }
+
+    public static function daddy_request_lti_launch_generic(int $userid, string $destinationurl)
+    {
+        $params = [
+            'type' => 'generic',
+            'user_id' => $userid,
+            'custom_plugin_version' => get_config('mod_daddyvideo', 'version'),
+            'destination_url' => $destinationurl
+        ];
+
+        return self::generate_launch_form($params);
+    }
+
+    private static function generate_launch_form($params): string
     {
         $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
         if (empty($endpoint)) {
             return get_string('error_not_configured', 'daddyvideo');
         }
 
+        # Build standard LTI parameters
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
 
-        $requestparams['roles'] = $role;
-        $requestparams['user_id'] = $userid;
-        $requestparams['context_id'] = $courseid;
-        $requestparams['custom_lecture_uuid'] = $uuid;
-        $requestparams['custom_lecture_title'] = $title;
-        $requestparams['custom_lecture_description'] = $description;
-        $requestparams['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
-        $requestparams['custom_endpoint'] = $endpoint;
+        // Add request-specific parameters
+        $params['custom_endpoint'] = $endpoint;
+        $requestparams = array_merge($requestparams, $params);
 
         $key = get_config('mod_daddyvideo', 'lti_key');
         $secret = get_config('mod_daddyvideo', 'lti_secret');
 
+        // Sign parameters and generate launch form
         $params = lti_sign_parameters($requestparams, $endpoint, 'POST', $key, $secret);
-
         $content = lti_post_launch_html($params, $endpoint, false);
 
         return $content;
