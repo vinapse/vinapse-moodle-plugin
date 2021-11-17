@@ -20,6 +20,8 @@ class lti_helper
                                                             string $role,
                                                             int    $userid,
                                                             int    $courseid,
+                                                            string $courseshortname,
+                                                            string $coursefullname,
                                                             string $title,
                                                             string $description)
     {
@@ -28,6 +30,8 @@ class lti_helper
             'roles' => $role,
             'user_id' => $userid,
             'context_id' => $courseid,
+            'context_label' => $courseshortname,
+            'context_title' => $coursefullname,
             'custom_lecture_uuid' => $uuid,
             'custom_lecture_title' => $title,
             'custom_lecture_description' => $description

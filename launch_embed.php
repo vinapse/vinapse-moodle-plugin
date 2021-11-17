@@ -49,6 +49,8 @@ $content = lti_helper::daddy_request_lti_launch_lecture(
     $role,
     $USER->id,
     $course->id,
+    $course->shortname,
+    $course->fullname,
     $instance->name,
     $instance->intro
 );
