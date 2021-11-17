@@ -13,8 +13,8 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 /** @var moodle_database $DB */
 /** @var core_user $USER */
 
-$courseid = optional_param('courseId', 0, PARAM_INT);
-$lectureuuid = optional_param('lectureUUID', '', PARAM_ALPHANUMEXT);
+$courseid = required_param('courseId', PARAM_INT);
+$lectureuuid = required_param('lectureUUID', PARAM_ALPHANUMEXT);
 
 // Get the module instance from its own table
 $instance = $DB->get_record(
