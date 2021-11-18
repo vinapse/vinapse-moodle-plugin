@@ -25,7 +25,6 @@
 use mod_daddyvideo\output\video_page;
 
 require(__DIR__ . '/../../config.php');
-require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/output/video_page.php');
 
 /** @var moodle_database $DB */
@@ -45,8 +44,8 @@ $instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUS
 require_login($course, true, $cm);
 
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));
-$PAGE->set_title(format_string($instance->name));
-$PAGE->set_heading(format_string($course->fullname));
+$PAGE->set_title($instance->name);
+$PAGE->set_heading($course->fullname);
 
 // Get the hostname of the LTI provider URL and pass it to the JavaScript module
 $lti_endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
