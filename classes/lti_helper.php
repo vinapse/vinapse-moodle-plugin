@@ -95,6 +95,7 @@ class lti_helper
         $params['custom_endpoint'] = $endpoint;
         $params['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $params['user_id'] = $USER->id;
+        $params['custom_courses'] = self::get_courses();
 
         // Add request-specific parameters
         $requestparams = array_merge($requestparams, $params);
@@ -107,5 +108,28 @@ class lti_helper
         $content = lti_post_launch_html($params, $endpoint, false);
 
         return $content;
+    }
+
+    private static function get_courses(): string
+    {
+        global $USER, $SITE;
+        $courses = enrol_get_users_courses($USER->id, true);
+
+        $items = [];
+        $items[] = count($courses);
+
+        foreach ($courses as $course) {
+            if ($course->id == $SITE->id) {
+                // Skip front page
+                continue;
+            }
+
+            $items[] = $course->id;
+            $items[] = $course->shortname;
+            $items[] = $course->fullname;
+            $items[] = self::get_ims_roles($course->id);
+        }
+
+        return utils::str_putcsv($items);
     }
 }
