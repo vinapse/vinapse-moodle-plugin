@@ -16,13 +16,12 @@ use stdClass;
 
 class video_page implements renderable, templatable
 {
-    private $courseid;
-    private $lectureuuid;
 
-    public function __construct($courseid, $lectureuuid)
+    private $cmid;
+
+    public function __construct($cmid)
     {
-        $this->courseid = $courseid;
-        $this->lectureuuid = $lectureuuid;
+        $this->cmid = $cmid;
     }
 
     /**
@@ -37,8 +36,7 @@ class video_page implements renderable, templatable
         $url = new moodle_url(
             '/mod/daddyvideo/launch_embed.php',
             [
-                'courseId' => $this->courseid,
-                'lectureUUID' => $this->lectureuuid
+                'cmid' => $this->cmid,
             ]
         );
 

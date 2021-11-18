@@ -56,7 +56,7 @@ $PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmi
 
 echo $OUTPUT->header();
 
-$renderable = new video_page($course->id, $instance->remoteuuid);
+$renderable = new video_page($cmid);
 echo $OUTPUT->render($renderable);
 
 echo $OUTPUT->footer();

@@ -13,28 +13,17 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 /** @var moodle_database $DB */
 /** @var core_user $USER */
 
-$courseid = required_param('courseId', PARAM_INT);
-$lectureuuid = required_param('lectureUUID', PARAM_ALPHANUMEXT);
+// Read the course module ID
+$cmid = required_param('cmid', PARAM_INT);
 
-// Get the module instance from its own table
-$instance = $DB->get_record(
-    'daddyvideo',
-    array('course' => $courseid, 'remoteuuid' => $lectureuuid),
-    '*',
-    MUST_EXIST
-);
-
-// Get course and course module
-list ($course, $cm) = get_course_and_cm_from_instance($instance->id, 'daddyvideo', $courseid);
+// Load the course and course module
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
 
 // Verify that the user can see this course module
 require_login($course, true, $cm);
 
-// Disallow guest access
-if (is_guest(context_course::instance($course->id))) {
-    echo get_string('nocapabilitytousethisservice', 'error');
-    die();
-}
+// Load module instance from its own table
+$instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
 $roles = lti_helper::daddy_get_ims_roles($course->id);
 
