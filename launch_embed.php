@@ -29,7 +29,7 @@ $roles = lti_helper::daddy_get_ims_roles($course->id);
 
 // Take off
 $content = lti_helper::daddy_request_lti_launch_lecture(
-    $instance->remoteuuid,
+    $instance->remoteuuid || '',
     $roles,
     $USER->id,
     $course->id,
