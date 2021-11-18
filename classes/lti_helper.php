@@ -8,6 +8,8 @@
 
 namespace mod_daddyvideo;
 
+use context_course;
+
 defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
@@ -16,6 +18,36 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 
 class lti_helper
 {
+    /**
+     * Gets the IMS role string for the specified user and LTI course module.
+     *
+     * @param int $courseid The course id of the LTI activity
+     *
+     * @return string A role string suitable for passing with an LTI launch
+     *
+     * @see lti_get_ims_role
+     *
+     */
+    public static function daddy_get_ims_roles($courseid)
+    {
+        $roles = [];
+
+        $context = context_course::instance($courseid);
+        if (has_capability('mod/daddyvideo:addinstance', $context)) {
+            $roles[] = 'Instructor';
+        } else {
+            $roles[] = 'Learner';
+        }
+
+        if (is_siteadmin()) {
+            // Make sure admins do not have the Learner role, then add administrator role
+            $roles = array_diff($roles, array('Learner'));
+            $roles[] = 'urn:lti:sysrole:ims/lis/Administrator';
+        }
+
+        return join(',', $roles);
+    }
+
     public static function daddy_request_lti_launch_lecture(string $uuid,
                                                             string $role,
                                                             int    $userid,
@@ -58,7 +90,7 @@ class lti_helper
             return get_string('error_not_configured', 'daddyvideo');
         }
 
-        # Build standard LTI parameters
+        // Build standard LTI parameters
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
 
         // Add request-specific parameters

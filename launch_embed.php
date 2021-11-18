@@ -31,22 +31,17 @@ list ($course, $cm) = get_course_and_cm_from_instance($instance->id, 'daddyvideo
 require_login($course, true, $cm);
 
 // Disallow guest access
-$context = context_course::instance($course->id);
-if (is_guest($context)) {
+if (is_guest(context_course::instance($course->id))) {
     echo get_string('nocapabilitytousethisservice', 'error');
     die();
 }
 
-// Check whether the current user has the capability to edit module instances
-$canedit = has_capability('mod/daddyvideo:addinstance', $context);
-$role = $canedit ? 'Instructor' : 'Learner';
-
-# TODO: use lti_get_ims_role() for roles
+$roles = lti_helper::daddy_get_ims_roles($course->id);
 
 // Take off
 $content = lti_helper::daddy_request_lti_launch_lecture(
     $instance->remoteuuid,
-    $role,
+    $roles,
     $USER->id,
     $course->id,
     $course->shortname,
