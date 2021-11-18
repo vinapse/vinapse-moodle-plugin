@@ -36,12 +36,14 @@ class lti_helper
         $context = context_course::instance($courseid);
         if (has_capability('mod/daddyvideo:addinstance', $context)) {
             $roles[] = 'Instructor';
+        } else if (isguestuser()) {
+            $roles[] = 'Learner/GuestLearner';
         } else {
             $roles[] = 'Learner';
         }
 
         if (is_siteadmin()) {
-            $roles[] = 'urn:lti:sysrole:ims/lis/Administrator';
+            $roles[] = 'Administrator';
         }
 
         return join(',', $roles);
