@@ -56,3 +56,6 @@ $string['error_popup_message'] = 'There was an unexpected error while preparing 
 $string['error_popup_button'] = 'Refresh';
 
 $string['error_not_configured'] = 'Missing LTI provider URL. Please contact support.';
+
+$string['launch_title'] = 'Authentication required';
+$string['launch_description'] = 'Guests are not allowed to access the platform. Please login.';

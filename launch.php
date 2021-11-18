@@ -10,21 +10,27 @@ use mod_daddyvideo\lti_helper;
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 
-/** @var moodle_database $DB */
+/** @var moodle_page $PAGE */
+/** @var core_renderer $OUTPUT */
 /** @var core_user $USER */
 
 $destinationpath = required_param('to', PARAM_URL);
 
-// Require generic login on the LMS instance
-require_login();
+// Require login but don't auto-login guests
+require_login(null, false);
 
-// Disallow guest access
+// However if the user is already logged in as a guest, show a page to force him to login (again)
 if (isguestuser()) {
-    echo get_string('nocapabilitytousethisservice', 'error');
-    die();
+    $PAGE->set_pagelayout('standard');
+    $PAGE->set_url('/mod/daddyvideo/launch.php', array('to' => $destinationpath));
+    $PAGE->set_title(get_string('modulename', 'mod_daddyvideo'));
+    $PAGE->set_heading(get_string('modulename', 'mod_daddyvideo'));
+
+    echo $OUTPUT->header();
+    echo $OUTPUT->heading(get_string('launch_title', 'mod_daddyvideo'));
+
+    notice(get_string('launch_description', 'mod_daddyvideo'), get_login_url());
+} else {
+    $content = lti_helper::daddy_request_lti_launch_generic($USER->id, $destinationpath);
+    echo $content;
 }
-
-// Take off
-$content = lti_helper::daddy_request_lti_launch_generic($USER->id, $destinationpath);
-
-echo $content;
