@@ -31,6 +31,6 @@ if (isguestuser()) {
 
     notice(get_string('launch_description', 'mod_daddyvideo'), get_login_url());
 } else {
-    $content = lti_helper::daddy_request_lti_launch_generic($USER->id, $destinationpath);
+    $content = lti_helper::request_lti_launch_generic($destinationpath);
     echo $content;
 }

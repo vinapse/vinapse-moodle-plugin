@@ -19,19 +19,15 @@ $cmid = required_param('cmid', PARAM_INT);
 // Load the course and course module
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
 
-// Verify that the user can see this course module
+// Verify that the user can see this course module. The user might be a guest!
 require_login($course, true, $cm);
 
 // Load module instance from its own table
 $instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
-$roles = lti_helper::daddy_get_ims_roles($course->id);
-
 // Take off
-$content = lti_helper::daddy_request_lti_launch_lecture(
+$content = lti_helper::request_lti_launch_lecture(
     $instance->remoteuuid || '',
-    $roles,
-    $USER->id,
     $course->id,
     $course->shortname,
     $course->fullname,

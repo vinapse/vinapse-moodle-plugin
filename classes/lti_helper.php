@@ -9,6 +9,7 @@
 namespace mod_daddyvideo;
 
 use context_course;
+use core_user;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -28,7 +29,7 @@ class lti_helper
      * @see lti_get_ims_role
      *
      */
-    public static function daddy_get_ims_roles($courseid)
+    public static function get_ims_roles(int $courseid): string
     {
         $roles = [];
 
@@ -40,27 +41,22 @@ class lti_helper
         }
 
         if (is_siteadmin()) {
-            // Make sure admins do not have the Learner role, then add administrator role
-            $roles = array_diff($roles, array('Learner'));
             $roles[] = 'urn:lti:sysrole:ims/lis/Administrator';
         }
 
         return join(',', $roles);
     }
 
-    public static function daddy_request_lti_launch_lecture(string $uuid,
-                                                            string $role,
-                                                            int    $userid,
-                                                            int    $courseid,
-                                                            string $courseshortname,
-                                                            string $coursefullname,
-                                                            string $title,
-                                                            string $description)
+    public static function request_lti_launch_lecture(string $uuid,
+                                                      int    $courseid,
+                                                      string $courseshortname,
+                                                      string $coursefullname,
+                                                      string $title,
+                                                      string $description): string
     {
         $params = [
             'custom_type' => 'lecture',
-            'roles' => $role,
-            'user_id' => $userid,
+            'roles' => self::get_ims_roles($courseid),
             'context_id' => $courseid,
             'context_label' => $courseshortname,
             'context_title' => $coursefullname,
@@ -72,11 +68,10 @@ class lti_helper
         return self::generate_launch_form($params);
     }
 
-    public static function daddy_request_lti_launch_generic(int $userid, string $destinationpath)
+    public static function request_lti_launch_generic(string $destinationpath): string
     {
         $params = [
             'custom_type' => 'generic',
-            'user_id' => $userid,
             'custom_destination_path' => $destinationpath
         ];
 
@@ -85,6 +80,9 @@ class lti_helper
 
     private static function generate_launch_form($params): string
     {
+        global $USER;
+        /** @var core_user $USER */
+
         $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
         if (empty($endpoint)) {
             return get_string('error_not_configured', 'daddyvideo');
@@ -93,9 +91,12 @@ class lti_helper
         // Build standard LTI parameters
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
 
-        // Add request-specific parameters
+        // Add common parameters
         $params['custom_endpoint'] = $endpoint;
         $params['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
+        $params['user_id'] = $USER->id;
+
+        // Add request-specific parameters
         $requestparams = array_merge($requestparams, $params);
 
         $key = get_config('mod_daddyvideo', 'lti_key');
