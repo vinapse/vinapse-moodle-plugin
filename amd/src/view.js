@@ -95,7 +95,7 @@ function setHeight(height, force) {
     if (!force) {
         lastRequestedHeight = height;
         let min = 300;
-        let max = window.innerHeight - 200;
+        let max = window.innerHeight - 270;
         height = constrainBetween(height, min, max);
     } else {
         lastRequestedHeight = null;
