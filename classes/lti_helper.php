@@ -9,7 +9,6 @@
 namespace mod_daddyvideo;
 
 use context_course;
-use core_user;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -63,8 +62,8 @@ class lti_helper
             'context_label' => $courseshortname,
             'context_title' => $coursefullname,
             'custom_lecture_uuid' => $uuid,
-            'custom_lecture_title' => $title,
-            'custom_lecture_description' => $description
+            'resource_link_title' => $title,
+            'resource_link_description' => $description
         ];
 
         return self::generate_launch_form($params);
@@ -83,7 +82,6 @@ class lti_helper
     private static function generate_launch_form($params): string
     {
         global $USER;
-        /** @var core_user $USER */
 
         $endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
         if (empty($endpoint)) {
