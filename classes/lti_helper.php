@@ -41,10 +41,6 @@ class lti_helper
             $roles[] = 'Learner';
         }
 
-        if (is_siteadmin()) {
-            $roles[] = 'Administrator';
-        }
-
         return join(',', $roles);
     }
 
