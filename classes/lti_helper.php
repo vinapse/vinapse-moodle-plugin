@@ -66,7 +66,6 @@ class lti_helper
                                                       string $description): string
     {
         $params = [
-            'custom_type' => 'lecture',
             'roles' => self::get_ims_roles($courseid),
             'context_id' => $courseid,
             'context_label' => $courseshortname,
@@ -82,7 +81,8 @@ class lti_helper
     public static function request_lti_launch_generic(string $destinationpath): string
     {
         $params = [
-            'custom_type' => 'generic',
+            'lti_message_type' => 'Login',
+            'roles' => self::get_ims_roles(),
             'custom_destination_path' => $destinationpath
         ];
 
@@ -103,7 +103,7 @@ class lti_helper
 
         // Add common parameters
         $params['custom_endpoint'] = $endpoint;
-        $params['custom_plugin_version'] = get_config('mod_daddyvideo', 'version');
+        $params['ext_moodle_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $params['user_id'] = $USER->id;
         $params['custom_courses'] = self::get_courses();
 
