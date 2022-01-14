@@ -21,24 +21,38 @@ class lti_helper
     /**
      * Gets the IMS role string for the specified user and LTI course module.
      *
-     * @param int $courseid The course id of the LTI activity
+     * @param int|null $courseid The course id of the LTI activity
      *
      * @return string A role string suitable for passing with an LTI launch
      *
-     * @see lti_get_ims_role
-     *
+     * @throws \coding_exception
      */
-    public static function get_ims_roles(int $courseid): string
+    public static function get_ims_roles(int $courseid = null): string
     {
+        // Loosely based on @see lti_get_ims_role
+        // https://github.com/moodle/moodle/blob/MOODLE_311_STABLE/mod/lti/locallib.php#L2144
         $roles = [];
 
-        $context = context_course::instance($courseid);
-        if (has_capability('mod/daddyvideo:addinstance', $context)) {
-            $roles[] = 'Instructor';
-        } else if (isguestuser()) {
-            $roles[] = 'Learner/GuestLearner';
-        } else {
-            $roles[] = 'Learner';
+        $is_context_admin = false;
+
+        // If we're in a course context, push roles based on capabilities in the course
+        if (!empty($courseid)) {
+            $context = context_course::instance($courseid);
+            if (has_capability('mod/daddyvideo:addinstance', $context)) {
+                $roles[] = 'Instructor';
+            } else if (isguestuser()) {
+                $roles[] = 'Learner/GuestLearner';
+            } else {
+                $roles[] = 'Learner';
+            }
+            $is_context_admin = has_capability('mod/lti:admin', $context);
+        }
+
+        // Always add admin roles if the user is an admin
+        $is_role_switched = !empty($courseid) && is_role_switched($courseid);
+        if (!$is_role_switched && (is_siteadmin() || $is_context_admin)) {
+            $roles[] = 'urn:lti:sysrole:ims/lis/Administrator';
+            $roles[] = 'urn:lti:instrole:ims/lis/Administrator';
         }
 
         return join(',', $roles);
