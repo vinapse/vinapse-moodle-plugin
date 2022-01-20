@@ -19,24 +19,20 @@ $cmid = required_param('cmid', PARAM_INT);
 // Load the course and course module
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
 
-// Verify that the user can see this course module
+// Verify that the user can see this course module. The user might be a guest!
 require_login($course, true, $cm);
 
 // Load module instance from its own table
-$moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
-
-// Check whether the current user has the capability to edit module instances
-$canedit = has_capability('mod/daddyvideo:addinstance', context_course::instance($course->id));
-$role = $canedit ? 'Instructor' : 'Learner';
+$instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
 // Take off
-$content = lti_helper::daddy_request_lti_launch(
-    $moduleinstance->remoteuuid,
-    $role,
-    $USER->id,
+$content = lti_helper::request_lti_launch_lecture(
+    $instance->remoteuuid ?? '',
     $course->id,
-    $moduleinstance->name,
-    $moduleinstance->intro
+    $course->shortname,
+    $course->fullname,
+    $instance->name,
+    $instance->intro
 );
 
 echo $content;

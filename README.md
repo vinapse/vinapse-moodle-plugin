@@ -1,4 +1,12 @@
-# DADdy video #
+# DADdy video
+
+This plugin allows to upload and view videos in Moodle.
+
+It supports Moodle 3.9 LTS and newer.
+
+## Installation
+
+Install through the Moodle admin page by uploading the ZIP file. Then fill configuration details.
 
 ## Development setup
 
@@ -21,8 +29,12 @@ cd mod/daddyvideo
 grunt # or grunt watch
 ```
 
-## Deployment
+For proper code completion in PhpStorm/IntelliJ IDEA, add the Moodle root directory to the PHP *Include Paths* in the project settings.
 
-Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`. Then install through the Moodle admin page.
+Also make sure to set the PHP version to 7.1 (the minimum required by Moodle 3.9).
+
+## Packaging
+
+Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`.
 
 **NOTE:** the script creates the package starting from the `HEAD` of the current branch, i.e. the latest commit.

@@ -16,13 +16,12 @@ use stdClass;
 
 class video_page implements renderable, templatable
 {
-    private $cmid;
-    private $name;
 
-    public function __construct($cmid, $name)
+    private $cmid;
+
+    public function __construct($cmid)
     {
         $this->cmid = $cmid;
-        $this->name = $name;
     }
 
     /**
@@ -34,15 +33,14 @@ class video_page implements renderable, templatable
     {
         $data = new stdClass();
 
-        $data->name = $this->name;
-        $data->cmid = $this->cmid;
-
-        $data->launch_url = new moodle_url(
-            '/mod/daddyvideo/lti_launch.php',
-            array(
-                'cmid' => $this->cmid
-            )
+        $url = new moodle_url(
+            '/mod/daddyvideo/launch_embed.php',
+            [
+                'cmid' => $this->cmid,
+            ]
         );
+
+        $data->launch_url = $url->out(false);
 
         return $data;
     }

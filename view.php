@@ -22,8 +22,9 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use mod_daddyvideo\output\video_page;
+
 require(__DIR__ . '/../../config.php');
-require_once(__DIR__ . '/lib.php');
 require_once(__DIR__ . '/output/video_page.php');
 
 /** @var moodle_database $DB */
@@ -37,14 +38,14 @@ $cmid = required_param('id', PARAM_INT);
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
 
 // Get the module instance from its own table
-$moduleinstance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
+$instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
 
 // Verify that the user can see this course module
 require_login($course, true, $cm);
 
 $PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));
-$PAGE->set_title(format_string($moduleinstance->name));
-$PAGE->set_heading(format_string($course->fullname));
+$PAGE->set_title($instance->name);
+$PAGE->set_heading($course->fullname);
 
 // Get the hostname of the LTI provider URL and pass it to the JavaScript module
 $lti_endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
@@ -54,7 +55,7 @@ $PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmi
 
 echo $OUTPUT->header();
 
-$renderable = new \mod_daddyvideo\output\video_page($cmid, $moduleinstance->name);
+$renderable = new video_page($cmid);
 echo $OUTPUT->render($renderable);
 
 echo $OUTPUT->footer();
