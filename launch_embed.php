@@ -27,7 +27,7 @@ $instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUS
 
 // Take off
 $content = lti_helper::request_lti_launch_lecture(
-    $instance->remoteuuid || '',
+    $instance->remoteuuid ?? '',
     $course->id,
     $course->shortname,
     $course->fullname,
