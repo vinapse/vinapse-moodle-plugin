@@ -1,4 +1,4 @@
-# DADdy video
+# Vinapse Moodle plugin
 
 This plugin allows to upload and view videos in Moodle.
 
