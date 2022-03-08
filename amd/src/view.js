@@ -62,7 +62,7 @@ function updateUUID(cmid, data) {
             window.console.error(err);
 
             // Remove iframe to stop upload
-            const iframe = document.getElementById('daddyvideo-embed');
+            const iframe = document.getElementById('vinapse-embed');
             iframe.parentNode.removeChild(iframe);
 
             // Alert the user and refresh on dismiss
@@ -101,7 +101,7 @@ function setHeight(height, force) {
         lastRequestedHeight = null;
     }
 
-    const iframe = document.getElementById('daddyvideo-embed');
+    const iframe = document.getElementById('vinapse-embed');
     iframe.style.height = `${height}px`;
     iframe.focus();
 }

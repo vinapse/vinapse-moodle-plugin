@@ -25,19 +25,19 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'DADdy video';
-$string['modulename'] = 'DADdy video';
-$string['modulenameplural'] = 'DADdy video';
-$string['modulename_help'] = 'The DADdy video module enables a teacher to upload a video file of a lecture, making it available to students through an advanced video player.
+$string['pluginname'] = 'Vinapse';
+$string['modulename'] = 'Vinapse video';
+$string['modulenameplural'] = 'Vinapse videos';
+$string['modulename_help'] = 'The Vinapse module (previously DADdy) enables a teacher to upload a video file of a lecture, making it available to students through an advanced video player.
 
 Once the resource is created, you will be given the possibility to upload a video file and fill some additional information about the lecture. The video will then be processed in a few minutes. 
 
-The video player consists of advanced features to aid the student in the fruition of the lecture, e.g. automatic slides detection, sections extraction, keywords extraction, turbo mode, etc.';
+The video player consists of advanced features to aid the student in the fruition of the lecture, e.g. automatic slides detection, chapters generation, keywords extraction, turbo mode, etc.';
 $string['daddyvideoname'] = 'Title';
-$string['pluginadministration'] = 'DADdy video plugin administration';
+$string['pluginadministration'] = 'Vinapse plugin administration';
 $string['noresources'] = 'No video resources found in this course.';
 
-$string['form_remoteuuid'] = 'Remote UUID';
+$string['form_remoteuuid'] = 'Vinapse UUID';
 $string['form_gotoupload'] = 'Create and go to video upload';
 $string['form_uploadhint_label'] = 'Video upload';
 $string['form_uploadhint_text'] = 'To upload the video file, proceed by saving the resource. You will then be able to do the upload.';
