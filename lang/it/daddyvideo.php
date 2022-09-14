@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'Vinapse';
 $string['modulename'] = 'Video Vinapse';
 $string['modulenameplural'] = 'Video Vinapse';
-$string['modulename_help'] = 'Il modulo Vinapse (in precedenza DADdy Video) video permette al docente di caricare un file video di una lezione mettendo a disposizione degli studenti un player avanzato per la fruizione della lezione.
+$string['modulename_help'] = 'Il modulo Vinapse video permette al docente di caricare un file video di una lezione mettendo a disposizione degli studenti un player avanzato per la fruizione della lezione.
 
 Una volta creata la risorsa, sarà data la possibilità di selezionare il file video e saranno richieste alcune informazioni sulla lezione. Il video sarà poi elaborato in pochi minuti.
 
-Il player video comprende funzionalità avanzate per agevolare la fruizione da parte dello studente, tra cui il rilevamento automatico delle slide, la suddivisione in capitoli, l\'estrazione di parole chiave, la modalità turbo, ecc.';
+La piattaforma Vinapse comprende un player video avanzato con funzionalità intelligenti per agevolare la fruizione da parte dello studente, tra cui il rilevamento automatico delle slide, la suddivisione in capitoli, l\'estrazione di parole chiave, la modalità turbo, ecc.';
 $string['daddyvideoname'] = 'Titolo';
 $string['pluginadministration'] = 'Amministrazione plugin Vinapse';
 $string['noresources'] = 'Nessuna risorsa video trovata in questo corso.';

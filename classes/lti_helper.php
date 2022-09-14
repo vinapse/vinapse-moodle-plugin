@@ -102,7 +102,6 @@ class lti_helper
         $requestparams = lti_build_standard_message(null, null, LTI_VERSION_1);
 
         // Add common parameters
-        $params['custom_endpoint'] = $endpoint;
         $params['ext_moodle_plugin_version'] = get_config('mod_daddyvideo', 'version');
         $params['user_id'] = $USER->id;
         $params['custom_courses'] = self::get_courses();
