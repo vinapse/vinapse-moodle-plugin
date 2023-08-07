@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 /** @var object $plugin */
 $plugin->component = 'mod_vinapse';
-$plugin->release = '1.3.0';
-$plugin->version = 2022091400;
-$plugin->requires = 2020061500;
+$plugin->release = '2.0.0';
+$plugin->version = 2023080700;
+$plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
