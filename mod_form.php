@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * The main mod_daddyvideo configuration form.
+ * The main mod_vinapse configuration form.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,11 +29,11 @@ require_once($CFG->dirroot . '/course/moodleform_mod.php');
 /**
  * Module instance settings form.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_daddyvideo_mod_form extends moodleform_mod
+class mod_vinapse_mod_form extends moodleform_mod
 {
 
     /**
@@ -47,7 +47,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Add the standard "name" field
-        $mform->addElement('text', 'name', get_string('daddyvideoname', 'mod_daddyvideo'), array('size' => '64'));
+        $mform->addElement('text', 'name', get_string('vinapsename', 'mod_vinapse'), array('size' => '64'));
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 100), 'maxlength', 100, 'client');
@@ -58,12 +58,12 @@ class mod_daddyvideo_mod_form extends moodleform_mod
         // If we're editing an existing resource
         if ($this->get_instance() != "") {
             // Add the UUID field
-            $mform->addElement('text', 'remoteuuid', get_string('form_remoteuuid', 'mod_daddyvideo'), array('size' => '40'));
+            $mform->addElement('text', 'remoteuuid', get_string('form_remoteuuid', 'mod_vinapse'), array('size' => '40'));
             $mform->setType('remoteuuid', PARAM_TEXT);
         } else {
             $mform->addElement('static', 'uploadhint',
-                get_string('form_uploadhint_label', 'mod_daddyvideo'),
-                get_string('form_uploadhint_text', 'mod_daddyvideo'));
+                get_string('form_uploadhint_label', 'mod_vinapse'),
+                get_string('form_uploadhint_text', 'mod_vinapse'));
         }
 
         // Add standard elements
@@ -71,7 +71,7 @@ class mod_daddyvideo_mod_form extends moodleform_mod
 
         if ($this->get_instance() == "") {
             // Add create & upload button
-            $this->add_action_buttons(true, get_string('form_gotoupload', 'mod_daddyvideo'), false);
+            $this->add_action_buttons(true, get_string('form_gotoupload', 'mod_vinapse'), false);
         } else {
             // Add standard buttons (edit mode)
             $this->add_action_buttons();

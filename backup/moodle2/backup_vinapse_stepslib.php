@@ -2,18 +2,18 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-class backup_daddyvideo_activity_structure_step extends backup_activity_structure_step
+class backup_vinapse_activity_structure_step extends backup_activity_structure_step
 {
     protected function define_structure()
     {
         $resource = new backup_nested_element(
-            'daddyvideo',
+            'vinapse',
             array('id'),
             array('name', 'timecreated', 'timemodified', 'intro', 'introformat', 'remoteuuid')
         );
 
         $resource->set_source_table(
-            'daddyvideo',
+            'vinapse',
             array(
                 'id' => backup::VAR_ACTIVITYID
             )

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_daddyvideo;
+namespace mod_vinapse;
 
 class utils
 {

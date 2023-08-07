@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Display information about all the mod_daddyvideo modules in the requested course.
+ * Display information about all the mod_vinapse modules in the requested course.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -36,20 +36,20 @@ require_course_login($course);
 
 $coursecontext = context_course::instance($course->id);
 
-$PAGE->set_url('/mod/daddyvideo/index.php', array('id' => $id));
+$PAGE->set_url('/mod/vinapse/index.php', array('id' => $id));
 $PAGE->set_title(format_string($course->fullname));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($coursecontext);
 
 echo $OUTPUT->header();
 
-$modulenameplural = get_string('modulenameplural', 'mod_daddyvideo');
+$modulenameplural = get_string('modulenameplural', 'mod_vinapse');
 echo $OUTPUT->heading($modulenameplural);
 
-$daddyvideos = get_all_instances_in_course('daddyvideo', $course);
+$vinapses = get_all_instances_in_course('vinapse', $course);
 
-if (empty($daddyvideos)) {
-    notice(get_string('noresources', 'mod_daddyvideo'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (empty($vinapses)) {
+    notice(get_string('noresources', 'mod_vinapse'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $table = new html_table();
@@ -66,22 +66,22 @@ if ($course->format == 'weeks') {
     $table->align = array('left', 'left');
 }
 
-foreach ($daddyvideos as $daddyvideo) {
-    if (!$daddyvideo->visible) {
+foreach ($vinapses as $vinapse) {
+    if (!$vinapse->visible) {
         $link = html_writer::link(
-            new moodle_url('/mod/daddyvideo/view.php', array('id' => $daddyvideo->coursemodule)),
-            format_string($daddyvideo->name, true),
+            new moodle_url('/mod/vinapse/view.php', array('id' => $vinapse->coursemodule)),
+            format_string($vinapse->name, true),
             array('class' => 'dimmed'));
     } else {
         $link = html_writer::link(
-            new moodle_url('/mod/daddyvideo/view.php', array('id' => $daddyvideo->coursemodule)),
-            format_string($daddyvideo->name, true));
+            new moodle_url('/mod/vinapse/view.php', array('id' => $vinapse->coursemodule)),
+            format_string($vinapse->name, true));
     }
 
-    $intro = format_module_intro('daddyvideo', $daddyvideo, $daddyvideo->coursemodule);
+    $intro = format_module_intro('vinapse', $vinapse, $vinapse->coursemodule);
 
     if ($course->format == 'weeks' or $course->format == 'topics') {
-        $table->data[] = array($daddyvideo->section, $link, $intro);
+        $table->data[] = array($vinapse->section, $link, $intro);
     } else {
         $table->data[] = array($link, $intro);
     }

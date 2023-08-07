@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_daddyvideo\output;
+namespace mod_vinapse\output;
 
 use moodle_url;
 use renderable;
@@ -34,7 +34,7 @@ class video_page implements renderable, templatable
         $data = new stdClass();
 
         $url = new moodle_url(
-            '/mod/daddyvideo/launch_embed.php',
+            '/mod/vinapse/launch_embed.php',
             [
                 'cmid' => $this->cmid,
             ]

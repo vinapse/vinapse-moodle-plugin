@@ -17,7 +17,7 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /** @var object $plugin */
-$plugin->component = 'mod_daddyvideo';
+$plugin->component = 'mod_vinapse';
 $plugin->release = '1.3.0';
 $plugin->version = 2022091400;
 $plugin->requires = 2020061500;

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_daddyvideo\external;
+namespace mod_vinapse\external;
 
 use context_module;
 use external_api;
@@ -44,12 +44,12 @@ class api extends external_api
 
         $context = context_module::instance($params['cmid']);
         self::validate_context($context);
-        require_capability('mod/daddyvideo:addinstance', $context);
+        require_capability('mod/vinapse:addinstance', $context);
 
-        $cm = get_coursemodule_from_id('daddyvideo', $cmid, 0, false, MUST_EXIST);
+        $cm = get_coursemodule_from_id('vinapse', $cmid, 0, false, MUST_EXIST);
 
         $DB->set_field_select(
-            'daddyvideo',
+            'vinapse',
             'remoteuuid',
             $params['uuid'],
             'id = :id',

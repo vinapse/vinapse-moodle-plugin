@@ -17,7 +17,7 @@
 /**
  * Library of interface functions and constants.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param string $feature Constant representing the feature.
  * @return mixed True if module supports feature, false if not, null if doesn't know
  */
-function daddyvideo_supports($feature)
+function vinapse_supports($feature)
 {
     switch ($feature) {
         case FEATURE_SHOW_DESCRIPTION:
@@ -45,63 +45,63 @@ function daddyvideo_supports($feature)
 }
 
 /**
- * Saves a new instance of the mod_daddyvideo into the database.
+ * Saves a new instance of the mod_vinapse into the database.
  *
  * Given an object containing all the necessary data, (defined by the form
  * in mod_form.php) this function will create a new instance and return the id
  * number of the instance.
  *
  * @param object $moduleinstance An object from the form.
- * @param mod_daddyvideo_mod_form $mform The form.
+ * @param mod_vinapse_mod_form $mform The form.
  * @return int The id of the newly inserted record.
  */
-function daddyvideo_add_instance($moduleinstance, $mform = null)
+function vinapse_add_instance($moduleinstance, $mform = null)
 {
     global $DB;
 
     $moduleinstance->timecreated = time();
 
-    $id = $DB->insert_record('daddyvideo', $moduleinstance);
+    $id = $DB->insert_record('vinapse', $moduleinstance);
 
     return $id;
 }
 
 /**
- * Updates an instance of the mod_daddyvideo in the database.
+ * Updates an instance of the mod_vinapse in the database.
  *
  * Given an object containing all the necessary data (defined in mod_form.php),
  * this function will update an existing instance with new data.
  *
  * @param object $moduleinstance An object from the form in mod_form.php.
- * @param mod_daddyvideo_mod_form $mform The form.
+ * @param mod_vinapse_mod_form $mform The form.
  * @return bool True if successful, false otherwise.
  */
-function daddyvideo_update_instance($moduleinstance, $mform = null)
+function vinapse_update_instance($moduleinstance, $mform = null)
 {
     global $DB;
 
     $moduleinstance->timemodified = time();
     $moduleinstance->id = $moduleinstance->instance;
 
-    return $DB->update_record('daddyvideo', $moduleinstance);
+    return $DB->update_record('vinapse', $moduleinstance);
 }
 
 /**
- * Removes an instance of the mod_daddyvideo from the database.
+ * Removes an instance of the mod_vinapse from the database.
  *
  * @param int $id Id of the module instance.
  * @return bool True if successful, false on failure.
  */
-function daddyvideo_delete_instance($id)
+function vinapse_delete_instance($id)
 {
     global $DB;
 
-    $exists = $DB->get_record('daddyvideo', array('id' => $id));
+    $exists = $DB->get_record('vinapse', array('id' => $id));
     if (!$exists) {
         return false;
     }
 
-    $DB->delete_records('daddyvideo', array('id' => $id));
+    $DB->delete_records('vinapse', array('id' => $id));
 
     return true;
 }

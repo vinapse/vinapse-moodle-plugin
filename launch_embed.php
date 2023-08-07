@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use mod_daddyvideo\lti_helper;
+use mod_vinapse\lti_helper;
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 
@@ -17,13 +17,13 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 $cmid = required_param('cmid', PARAM_INT);
 
 // Load the course and course module
-list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'vinapse');
 
 // Verify that the user can see this course module. The user might be a guest!
 require_login($course, true, $cm);
 
 // Load module instance from its own table
-$instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
+$instance = $DB->get_record('vinapse', array('id' => $cm->instance), '*', MUST_EXIST);
 
 // Take off
 $content = lti_helper::request_lti_launch_lecture(

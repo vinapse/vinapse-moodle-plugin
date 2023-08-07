@@ -17,7 +17,7 @@
 /**
  * Code that is executed before the tables and data are dropped during the plugin uninstallation.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @category    upgrade
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,6 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Custom uninstallation procedure.
  */
-function xmldb_daddyvideo_uninstall() {
+function xmldb_vinapse_uninstall() {
     return true;
 }

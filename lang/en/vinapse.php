@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @category    string
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -33,7 +33,7 @@ $string['modulename_help'] = 'The Vinapse module enables a teacher to upload a v
 Once the resource is created, you will be given the possibility to upload a video file and fill some additional information about the lecture. The video will then be processed in a few minutes. 
 
 The Vinapse platform includes an advanced video player with smart features to aid the student in the fruition of the lecture, e.g. automatic slides detection, chapters generation, keywords extraction, turbo mode, etc.';
-$string['daddyvideoname'] = 'Title';
+$string['vinapsename'] = 'Title';
 $string['pluginadministration'] = 'Vinapse plugin administration';
 $string['noresources'] = 'No video resources found in this course.';
 
@@ -42,7 +42,7 @@ $string['form_gotoupload'] = 'Create and go to video upload';
 $string['form_uploadhint_label'] = 'Video upload';
 $string['form_uploadhint_text'] = 'To upload the video file, proceed by saving the resource. You will then be able to do the upload.';
 
-$string['daddyvideo:addinstance'] = 'Add video resource';
+$string['vinapse:addinstance'] = 'Add video resource';
 
 $string['setting_lti_provider_url'] = 'LTI provider URL';
 $string['setting_lti_provider_url_desc'] = 'The base URL of the LTI provider that was provided to you.';

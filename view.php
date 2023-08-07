@@ -15,14 +15,14 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Prints an instance of mod_daddyvideo.
+ * Prints an instance of mod_vinapse.
  *
- * @package     mod_daddyvideo
+ * @package     mod_vinapse
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use mod_daddyvideo\output\video_page;
+use mod_vinapse\output\video_page;
 
 require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/output/video_page.php');
@@ -35,23 +35,23 @@ require_once(__DIR__ . '/output/video_page.php');
 $cmid = required_param('id', PARAM_INT);
 
 // Get course and course module records
-list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'daddyvideo');
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'vinapse');
 
 // Get the module instance from its own table
-$instance = $DB->get_record('daddyvideo', array('id' => $cm->instance), '*', MUST_EXIST);
+$instance = $DB->get_record('vinapse', array('id' => $cm->instance), '*', MUST_EXIST);
 
 // Verify that the user can see this course module
 require_login($course, true, $cm);
 
-$PAGE->set_url('/mod/daddyvideo/view.php', array('id' => $cmid));
+$PAGE->set_url('/mod/vinapse/view.php', array('id' => $cmid));
 $PAGE->set_title($instance->name);
 $PAGE->set_heading($course->fullname);
 
 // Get the hostname of the LTI provider URL and pass it to the JavaScript module
-$lti_endpoint = get_config('mod_daddyvideo', 'lti_provider_base_url');
+$lti_endpoint = get_config('mod_vinapse', 'lti_provider_base_url');
 $lti_hostname = parse_url($lti_endpoint, PHP_URL_HOST);
 
-$PAGE->requires->js_call_amd('mod_daddyvideo/view', 'init', array('cmid' => $cmid, 'lti_host' => $lti_hostname));
+$PAGE->requires->js_call_amd('mod_vinapse/view', 'init', array('cmid' => $cmid, 'lti_host' => $lti_hostname));
 
 echo $OUTPUT->header();
 

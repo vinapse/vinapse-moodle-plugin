@@ -12,7 +12,7 @@ Install through the Moodle admin page by uploading the ZIP file. Then fill confi
 
 ```sh
 cd $MOODLE_PATH/mod
-git clone git@github.com:txc2team/daddy-moodle-plugin.git daddyvideo
+git clone git@github.com:txc2team/vinapse-moodle-plugin.git vinapse
 ```
 
 Go to Moodle admin to complete the installation.
@@ -23,10 +23,11 @@ If you change JavaScript files in `amd/src`, make sure to rebuild the modules.
 
 ```sh
 cd $MOODLE_PATH
+nvm install
+nvm use
 npm install
-npm install -g grunt-cli
-cd mod/daddyvideo
-grunt # or grunt watch
+cd mod/vinapse
+npx grunt amd # or npx grunt watch
 ```
 
 For proper code completion in PhpStorm/IntelliJ IDEA, add the Moodle root directory to the PHP *Include Paths* in the project settings.
@@ -35,6 +36,6 @@ Also make sure to set the PHP version to 7.1 (the minimum required by Moodle 3.9
 
 ## Packaging
 
-Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `daddyvideo`.
+Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `vinapse`.
 
 **NOTE:** the script creates the package starting from the `HEAD` of the current branch, i.e. the latest commit.
