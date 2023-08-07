@@ -2,7 +2,7 @@
 
 This plugin allows to upload and view videos in Moodle.
 
-It supports Moodle 3.9 LTS and newer.
+It supports Moodle 4.1 LTS and newer.
 
 ## Installation
 
@@ -32,7 +32,7 @@ npx grunt amd # or npx grunt watch
 
 For proper code completion in PhpStorm/IntelliJ IDEA, add the Moodle root directory to the PHP *Include Paths* in the project settings.
 
-Also make sure to set the PHP version to 7.1 (the minimum required by Moodle 3.9).
+Also make sure to set the PHP version to 7.4 (the minimum required by Moodle 4.1).
 
 ## Packaging
 
