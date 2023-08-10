@@ -13,6 +13,10 @@ use external_api;
 use external_function_parameters;
 use external_value;
 
+global $CFG;
+
+require_once($CFG->dirroot . '/lib/externallib.php');
+
 class api extends external_api
 {
     public static function set_uuid_parameters()
