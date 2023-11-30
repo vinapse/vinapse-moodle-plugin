@@ -43,6 +43,10 @@ $instance = $DB->get_record('vinapse', array('id' => $cm->instance), '*', MUST_E
 // Verify that the user can see this course module
 require_login($course, true, $cm);
 
+// Mark activity as completed/viewed
+$completion = new completion_info($course);
+$completion->set_module_viewed($cm);
+
 $PAGE->set_url('/mod/vinapse/view.php', array('id' => $cmid));
 $PAGE->set_title($instance->name);
 $PAGE->set_heading($course->fullname);
