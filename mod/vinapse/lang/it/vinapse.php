@@ -55,4 +55,7 @@ $string['error_popup_title'] = 'Errore';
 $string['error_popup_message'] = 'Si è verificato un errore inaspettato nella preparazione dell\'upload. Ricarica la pagina e riprova.';
 $string['error_popup_button'] = 'Ricarica';
 
-$string['error_not_configured'] = 'URL del provider LTI mancante. Per favore contatta il supporto.';
+$string['error_not_configured'] = 'URL del provider LTI mancante. Completa la configurazione o se hai bisogno di aiuto contatta l\'assistenza.';
+
+$string['launch_guest_title'] = 'Autenticazione richiesta';
+$string['launch_guest_description'] = 'Gli ospiti non possono accedere alla piattaforma. Effettua il login.';

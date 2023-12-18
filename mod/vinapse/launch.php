@@ -19,7 +19,7 @@ $destinationpath = required_param('to', PARAM_URL);
 // Require login but don't auto-login guests
 require_login(null, false);
 
-// However if the user is already logged in as a guest, show a page to force him to login (again)
+// However if the user is already logged in as a guest, show a page to force them to login (again)
 if (isguestuser()) {
     $PAGE->set_pagelayout('standard');
     $PAGE->set_url('/mod/vinapse/launch.php', array('to' => $destinationpath));
@@ -27,9 +27,9 @@ if (isguestuser()) {
     $PAGE->set_heading(get_string('modulename', 'mod_vinapse'));
 
     echo $OUTPUT->header();
-    echo $OUTPUT->heading(get_string('launch_title', 'mod_vinapse'));
+    echo $OUTPUT->heading(get_string('launch_guest_title', 'mod_vinapse'));
 
-    notice(get_string('launch_description', 'mod_vinapse'), get_login_url());
+    notice(get_string('launch_guest_description', 'mod_vinapse'), get_login_url());
 } else {
     $content = lti_helper::request_lti_launch_generic($destinationpath);
     echo $content;

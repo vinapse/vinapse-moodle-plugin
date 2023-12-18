@@ -55,7 +55,7 @@ $string['error_popup_title'] = 'Error';
 $string['error_popup_message'] = 'There was an unexpected error while preparing the upload. Please refresh the page and start again.';
 $string['error_popup_button'] = 'Refresh';
 
-$string['error_not_configured'] = 'Missing LTI provider URL. Please contact support.';
+$string['error_not_configured'] = 'Missing LTI provider URL. Complete the configuration or contact support if you need help.';
 
-$string['launch_title'] = 'Authentication required';
-$string['launch_description'] = 'Guests are not allowed to access the platform. Please login.';
+$string['launch_guest_title'] = 'Authentication required';
+$string['launch_guest_description'] = 'Guests are not allowed to access the platform. Please login.';

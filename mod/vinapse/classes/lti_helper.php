@@ -89,6 +89,23 @@ class lti_helper
         return self::generate_launch_form($params);
     }
 
+    public static function request_lti_launch_chat(int    $courseid,
+                                                   string $courseshortname,
+                                                   string $coursefullname,
+                                                   string $query): string
+    {
+        $params = [
+            'lti_message_type' => 'Chat',
+            'roles' => self::get_ims_roles(),
+            'context_id' => $courseid,
+            'context_label' => $courseshortname,
+            'context_title' => $coursefullname,
+            'custom_query' => $query
+        ];
+
+        return self::generate_launch_form($params);
+    }
+
     private static function generate_launch_form($params): string
     {
         global $USER;
