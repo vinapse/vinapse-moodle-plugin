@@ -14,6 +14,7 @@ use renderer_base;
 use templatable;
 use stdClass;
 
+// TODO: get rid of this class, see vinapsechat
 class video_page implements renderable, templatable
 {
 
