@@ -1,0 +1,39 @@
+body:not(.editing) .modtype_vinapsechat .activity-instance {
+    display: none !important;
+}
+
+body:not(.editing) .modtype_vinapsechat .activity-item {
+    padding: 0 !important;
+}
+
+.vinapsechat-wrapper {
+    padding: 5px 10px;
+}
+
+.vinapsechat-intro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.vinapsechat-intro img {
+    width: 10px;
+    margin-right: 8px;
+}
+
+.vinapsechat-wrapper form {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.vinapsechat-wrapper form input[type=text] {
+    font-size: 1.2rem;
+    height: 45px;
+}
+
+.vinapsechat-wrapper form input[type=submit] {
+    font-size: 1rem;
+    height: 45px;
+}

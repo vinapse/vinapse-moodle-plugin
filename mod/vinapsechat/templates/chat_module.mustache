@@ -1,0 +1,12 @@
+<div class="vinapsechat-wrapper">
+    <div class="vinapsechat-intro">
+        <img src="{{wwwroot}}/mod/vinapsechat/pix/turbo.svg" alt="">
+        <span class="nolink">
+            {{#str}}form_intro,mod_vinapsechat{{/str}}
+        </span>
+    </div>
+    <form action="{{post_url}}" method="POST">
+        <input type="text" name="query" placeholder="{{#str}}form_placeholder,mod_vinapsechat{{/str}}"  class="form-control"/>
+        <input type="submit" value="{{#str}}form_button,mod_vinapsechat{{/str}}" class="btn btn-primary" />
+    </form>
+</div>

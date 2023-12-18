@@ -15,18 +15,30 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * Plugin strings are defined here.
  *
  * @package     mod_vinapse
+ * @category    string
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-/** @var object $plugin */
-$plugin->component = 'mod_vinapse';
-$plugin->release = '2.2.0';
-$plugin->version = 2023121800;
-$plugin->requires = 2022112800;
-$plugin->maturity = MATURITY_STABLE;
+$string['pluginname'] = 'Vinapse Chat';
+$string['modulename'] = 'Vinapse chat';
+$string['modulenameplural'] = 'Vinapse chats';
+$string['modulename_help'] = 'TODO'; // TODO
+$string['vinapsename'] = 'Title';
+$string['noresources'] = 'No Vinapse Chat activities found in this course.';
+
+$string['vinapsechat:addinstance'] = 'Add Vinapse Chat activity';
+
+$string['error_not_configured'] = 'Missing LTI provider URL. Please contact support.';
+
+$string['launch_guest_title'] = 'Authentication required';
+$string['launch_guest_description'] = 'Guests are not allowed to access this feature. Please login.';
+
+$string['form_intro'] = 'Ask me a question about the contents of this course to start a chat!';
+$string['form_placeholder'] = 'Ask me anything...';
+$string['form_button'] = 'Send';

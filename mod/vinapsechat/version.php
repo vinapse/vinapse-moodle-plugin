@@ -17,7 +17,7 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     mod_vinapse
+ * @package     mod_vinapsechat
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,8 +25,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 /** @var object $plugin */
-$plugin->component = 'mod_vinapse';
+$plugin->component = 'mod_vinapsechat';
 $plugin->release = '2.2.0';
 $plugin->version = 2023121800;
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
+$plugin->dependencies = [
+    'mod_vinapse' => 2023121800,
+];
