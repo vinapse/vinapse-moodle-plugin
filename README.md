@@ -1,8 +1,13 @@
 # Vinapse Moodle plugin
 
-This plugin allows to upload and view videos in Moodle.
+This repository contains the source code of the Vinapse plugins for Moodle.
 
-It supports Moodle 4.1 LTS and newer.
+There are two plugins:
+
+- `mod_vinapse` is the main plugin, which provides the Vinapse video activity and settings
+- `mod_vinapsechat` is an optional plugin, which provides the Vinapse chat activity
+
+The plugins support Moodle 4.1 LTS and newer.
 
 ## Installation
 
@@ -10,10 +15,7 @@ Install through the Moodle admin page by uploading the ZIP file. Then fill confi
 
 ## Development setup
 
-```sh
-cd $MOODLE_PATH/mod
-git clone git@github.com:txc2team/vinapse-moodle-plugin.git vinapse
-```
+Clone this repository, then follow our [Moodle dev setup instructions](https://github.com/vinapse/vinapse-docs/blob/main/moodle.md) which mount the two plugins as Docker volumes.
 
 Go to Moodle admin to complete the installation.
 
@@ -36,6 +38,6 @@ Also make sure to set the PHP version to 7.4 (the minimum required by Moodle 4.1
 
 ## Packaging
 
-Run `./build.sh` to create a ZIP file with the source code of this repository contained in a folder named `vinapse`.
+Run `./build.sh` to create two ZIP files for the two plugins.
 
 **NOTE:** the script creates the package starting from the `HEAD` of the current branch, i.e. the latest commit.
