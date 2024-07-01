@@ -59,3 +59,9 @@ $string['error_not_configured'] = 'Missing LTI provider URL. Complete the config
 
 $string['launch_guest_title'] = 'Authentication required';
 $string['launch_guest_description'] = 'Guests are not allowed to access the platform. Please login.';
+
+$string['privacy:metadata:purpose'] = 'This plugin acts as an LTI consumer and therefore transmits some user data to the external Vinapse LTI tool provider.';
+$string['privacy:metadata:userid'] = 'The ID of the user using Vinapse resources.';
+$string['privacy:metadata:language'] = 'The language set by the user.';
+$string['privacy:metadata:roles'] = 'The roles of the user in the course where the Vinapse resource is launched.';
+$string['privacy:metadata:courses'] = 'The list of all the courses in which the user is enrolled, with the corresponding roles.';

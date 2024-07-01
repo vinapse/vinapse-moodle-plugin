@@ -59,3 +59,9 @@ $string['error_not_configured'] = 'URL del provider LTI mancante. Completa la co
 
 $string['launch_guest_title'] = 'Autenticazione richiesta';
 $string['launch_guest_description'] = 'Gli ospiti non possono accedere alla piattaforma. Effettua il login.';
+
+$string['privacy:metadata:purpose'] = 'Questo plugin agisce come LTI consumer e quindi trasmette alcuni dati degli utenti al provider LTI esterno.';
+$string['privacy:metadata:userid'] = 'L\'ID dell\'utente che sta usando una risorsa Vinapse.';
+$string['privacy:metadata:language'] = 'La lingua impostata dall\'utente';
+$string['privacy:metadata:roles'] = 'I ruoli dell\'utente nel contesto del corso in cui la risorsa Vinapse si trova ed è lanciata.';
+$string['privacy:metadata:courses'] = 'La lista di tutti i corsi in cui l\'utente è iscritto, con i relativi ruoli.';
