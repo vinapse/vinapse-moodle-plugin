@@ -42,3 +42,5 @@ $string['launch_guest_description'] = 'Guests are not allowed to access this fea
 $string['form_intro'] = 'Ask me a question about the contents of this course to start a chat!';
 $string['form_placeholder'] = 'Ask me anything...';
 $string['form_button'] = 'Send';
+
+$string['privacy:metadata'] = 'This plugin does not store or process any user data in addition to what is specified by the main Vinapse plugin.';

@@ -42,3 +42,5 @@ $string['launch_guest_description'] = 'Gli ospiti non possono accedere a questa 
 $string['form_intro'] = 'Fammi una domanda sui contenuti del corso per avviare una chat!';
 $string['form_placeholder'] = 'Chiedimi qualcosa...';
 $string['form_button'] = 'Invia';
+
+$string['privacy:metadata'] = 'Questo plugin non memorizza o elabora alcun dato utente aggiuntivo rispetto a quanto specificato dal plugin Vinapse principale.';
