@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * The main mod_vinapse configuration form.
+ * The main mod_vinapsechat configuration form.
  *
- * @package     mod_vinapse
+ * @package     mod_vinapsechat
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,7 +29,7 @@ require_once($CFG->dirroot . '/course/moodleform_mod.php');
 /**
  * Module instance settings form.
  *
- * @package     mod_vinapse
+ * @package     mod_vinapsechat
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

@@ -17,7 +17,7 @@
 /**
  * Display information about all the mod_vinapse modules in the requested course.
  *
- * @package     mod_vinapse
+ * @package     mod_vinapsechat
  * @copyright   2021 TxC2 <info@txc2.eu>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
