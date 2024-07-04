@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 /** @var object $plugin */
 $plugin->component = 'mod_vinapsechat';
-$plugin->release = '2.2.0';
+$plugin->release = '2.2.1';
 $plugin->version = 2024070100;
 $plugin->requires = 2022112800;
 $plugin->maturity = MATURITY_STABLE;
