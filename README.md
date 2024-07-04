@@ -11,7 +11,9 @@ The plugins support Moodle 4.1 LTS and newer.
 
 ## Installation
 
-Install through the Moodle admin page by uploading the ZIP file. Then fill configuration details.
+Install through the Moodle admin page by uploading the ZIP file. The plugins are also available in the Moodle plugins directory.
+
+After installation, fill the configuration details that have been provided to you by the Vinapse team.
 
 ## Development setup
 
